@@ -13,6 +13,7 @@ function openHomePage(url){
 
 /**
  * This is the type that holding the details of the Heroku App Home Page
+ * This is just for an example.
  */
 class HomePage{
     constructor(){
