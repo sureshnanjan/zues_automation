@@ -1,5 +1,5 @@
 let Heading = "";
-let Subheadeing = "";
+let Subheading = "";
 
 /**
  * Access a page in the Heroku App
@@ -11,4 +11,4 @@ function AccessPages(name){
 }
 
 AccessPages("AddRemove")
-let page = Add_Remove_Element();
+let page = "Add_Remove_Element_Page";
