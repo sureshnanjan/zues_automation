@@ -2,6 +2,13 @@
  * This is Doc Examples
  */
 console.log("Automating Add/Remove Page of Heroku App")
+/**
+ * 
+ * @returns {String}
+ */
+function getHeadingText(){
+    return String;
+}
 
 /**
  * This method adds the element on the page
@@ -21,7 +28,13 @@ function addElement(action1){
 function removeElement(action2){
    return 1;
 }
-
+/**
+ * 
+ * @returns {number}
+ */
+function getAllAddeddElements(){
+    return number
+}
 /**
 * This is the launch of Add/Remove Page of Heroku App
 */
