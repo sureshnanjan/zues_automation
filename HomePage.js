@@ -3,10 +3,10 @@ let Subheading = "";
 
 /**
  * Access a page in the Heroku App
- * @param {*} name - Provide the name of the Page 
+ * @param {*} HomePage - Provide the name of the Page 
  */
 
-function AccessPages(name){
+function AccessPages(HomePage){
 
 }
 
