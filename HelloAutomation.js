@@ -21,7 +21,7 @@ class HomePage{
     }
 }
 /**
- * Demo method to push to main branch
+ * Demo method to push to own branch
  * @param {string} param1 Parameter 1 is the name
  * @param {number} param2 Parameter 2 is the no.
  * @returns a string
