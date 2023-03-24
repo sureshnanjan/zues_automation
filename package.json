@@ -1,5 +1,18 @@
 {
   "dependencies": {
     "jsdoc": "^4.0.2"
-  }
+  },
+  "name": "zues_automation",
+  "description": "The Training project for Playwright Automation with Typescript",
+  "version": "1.0.0",
+  "main": "HelloAutomation.js",
+  "devDependencies": {
+    "playwright": "^1.32.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
