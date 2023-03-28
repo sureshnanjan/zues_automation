@@ -1,0 +1,16 @@
+{
+  "name": "zues_automation",
+  "version": "1.0.0",
+  "description": "The Training project for Playwright Automation with Typescript",
+  "main": "HelloAutomation.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pass": "echo all is well"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.32.0"
+  }
+}
