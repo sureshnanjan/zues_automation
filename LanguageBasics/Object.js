@@ -1,5 +1,5 @@
 /**
- * This is a test to check repeatWord
+ * This is a test to check repeatWord function
  */
 var assert = require('assert');
 describe('Testing the Object Utility', function () {
@@ -33,6 +33,9 @@ describe('MyFunc Test', function () {
     });
   });
 
+/**
+ * This is a test to check myCar function
+ */
 describe('myCar Test', function () {
     it('This should check if brand is Honda', function () {
         assert.equal(myCar('Accord'), 'Honda')
@@ -101,9 +104,9 @@ function myFunc(array) {
 }
 
 /**
- * This is a function to test if car is Toyota or not
- * @param {*} number Specify the number
- * @returns Returns if car is Toyota or not
+ * This is a function to test if brand is Toyota, Honda or others
+ * @param {*} car Specify the car name
+ * @returns Returns if car Honda, Toyota or Others
  */
 function myCar(car){
     if(car == 'Accord')
