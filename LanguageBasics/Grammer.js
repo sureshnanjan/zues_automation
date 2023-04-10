@@ -2,7 +2,6 @@ const objective = "Learning language basics";
 console.log("Objective : " + objective)
 /**const - Language Keyword
  Identifier
- Literal - 100, 200, 100n or "Deepika", "Suresh"
  Boolean true, false
 */
 
