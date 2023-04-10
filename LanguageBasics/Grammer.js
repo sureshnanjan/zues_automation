@@ -6,9 +6,9 @@ console.log("Objective : " + objective)
  Boolean true, false
 */
 
- let name= "Deepika Gurav";
- let age= 26; 
- console.log(`Hi I am ${name} and my age is ${age}`);
+ let name= "Pratik";
+ let age= 23; 
+ console.log(`Hi I'm ${name} and I"m ${age} years old`);
  
  
  /**
