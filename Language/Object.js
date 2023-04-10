@@ -67,3 +67,5 @@ function multiply(a, b ) {
 }
 
 console.log(multiply(5)); // 5
+
+const category = {id:100 , name : "repltile" }
