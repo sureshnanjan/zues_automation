@@ -1,0 +1,67 @@
+ATEGORIES | Total: 3
+#1:  { id: 1, name: 'Dogs' }
+--------
+#2:  { id: 2, name: 'Cats' }
+--------
+#3:  { id: 3, name: 'Birds' }
+--------
+PETS | Total: 3
+#1:  {
+  id: 1,
+  name: 'Doggo',
+  category: { id: 1, name: 'Dogs' },
+  tags: { id: 1, name: 'Friendly' },
+  status: 'available'
+}
+--------
+#2:  {
+  id: 2,
+  name: 'Catto',
+  category: { id: 2, name: 'Cats' },
+  tags: { id: 2, name: 'Lazy' },
+  status: 'sold'
+}
+--------
+#3:  {
+  id: 3,
+  name: 'Birdo',
+  category: { id: 3, name: 'Birds' },
+  tags: { id: 3, name: 'Loud' },
+  status: 'pending'
+}
+--------
+TAGS | Total: 3
+#1:  { id: 1, name: 'Friendly' }
+--------
+#2:  { id: 2, name: 'Lazy' }
+--------
+#3:  { id: 3, name: 'Loud' }
+--------
+USERS | Total: 2
+#1:  {
+  id: 1,
+  username: 'johndoe',
+  email: 'johndoe@example.com',
+  firstName: 'John',
+  lastName: 'Doe',
+  phone: '123-456-7890',
+  userStatus: 1
+}
+--------
+#2:  {
+  id: 2,
+  username: 'janedoe',
+  email: 'janedoe@example.com',
+  firstName: 'Jane',
+  lastName: 'Doe',
+  phone: '123-456-7890',
+  userStatus: 2
+}
+--------
+ORDERS | Total: 2
+#1:  {
+    ✔ Check if the number of Tags is printed correctly
+    ✔ Check if the number of Users is printed correctly
+    ✔ Check if the number of Orders is printed correctly
+  5 passing (8ms)
+D:\automation\course\zues_automation>
