@@ -21,6 +21,7 @@
   "homepage": "https://github.com/sureshnanjan/zues_automation#readme",
   "keywords": [],
   "devDependencies": {
+    "chai": "^4.3.7",
     "jsdoc": "^4.0.2",
     "mocha": "^10.2.0"
   }
