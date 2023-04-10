@@ -1,7 +1,7 @@
 /**
  * Variable declartions
  */
-let i, div, flag;
+let flag;
 
 /**
  * Varible Intialization
@@ -9,38 +9,30 @@ let i, div, flag;
 flag = false;
 
 /**
- * This function will check whther the number is prime or not
+ * Checking Even no.
  * @param {number} number 
  */
-function PrimeNumber(number){
-    div=number/2;      
-    if(number==0||number==1){  
-        return flag=true;
-        //console.log(number+" is not prime number");      
-    }
-    else{  
-        for(i=2;i<=div;i++){      
-            if(number%i==0){      
-                //console.log(number+" is not prime number");      
-               return flag=true;            
-            }      
-        }      
-        //if(flag==false){ 
-         //   console.log(number+" is prime number"); 
-        //}  
-    } 
+ function EvenNumber(number){     
+  if(number%2==0){  
+      return flag=true;
+      //console.log(number+" is even");      
+  }
+  else{  
+      //console.log(number+" is Odd");      
+        return flag=false;                  
+  } 
 }
-//console.log(PrimeNumber(6));
+//console.log(EvenNumber(6));
 
 var assert = require (`assert`)
 describe('Testing the number', function (name) {
-    describe('Test the number is prime or not', function (name) {
-      it('Should return the appropriate message as the number is prime', function () {
-        console.log( assert.equal(PrimeNumber(6), false))
+    describe('Test the number is even', function (name) {
+      it('Should return the appropriate message as the number is even', function () {
+        console.log( assert.equal(EvenNumber(6), true))
        
       });
-      it('Should return the appropriate message as the number is not prime', function () {
-        console.log( assert.equal(PrimeNumber(6), true))
+      it('Should return the appropriate message as the number is not even', function () {
+        console.log( assert.equal(EvenNumber(6), false))
       });
     });
   });
