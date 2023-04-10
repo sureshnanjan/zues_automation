@@ -22,7 +22,6 @@ const name =['fish', 'cat']
  * Test cases for the Category constructor function
  */
 var assert = require('assert');
-const { it, describe } = require('mocha');
 let fish = new Category(3,'fish')
 describe('Testing the Category Constructor Function', function () {
   describe('Category name and id should be as provided by user', function () {
