@@ -18,21 +18,28 @@ function Category(id, name) {
  */
 const name =['fish', 'cat']
 
+
+/**
+ * For loop for constructing category function
+ */
+for (let index = 1; index < name.length; index++) {
+    var fish = new Category(index, name[index]) 
+}
+
 /**
  * Test cases for the Category constructor function
  */
 var assert = require('assert');
-let fish = new Category(3,'fish')
 describe('Testing the Category Constructor Function', function () {
   describe('Category name and id should be as provided by user', function () {
     it('should return category with ID 3', function () {
-      assert.equal(fish.id, 3);
+      assert.equal(fish.id, 1);
     });
     it('should return correct category name - fish', function () {
-        assert.equal(fish.name, 'fish');
+        assert.equal(fish.name, 'cat');
       });
     it('should print the correct print value as: fish - 3', function () {
-        assert.equal(fish.printCategory(), 'fish - 3');
+        assert.equal(fish.printCategory(), 'cat - 1');
       });
   });
 });
@@ -59,30 +66,39 @@ function Pet(id, name, photoUrls, status) {
 /**
  * These are the arrays for different parameters in Pet function
  */
-const pets = ['Goldfish', 'Husky', 'Burmese Cat', 'Snake', 'Parrot'];
-const url = ['GoldfishURL', 'Husky', 'Burmese Cat', 'Snake', 'Parrot'];
-const petStatus = ['available', 'pending', 'sold', 'available', 'sold'];
+const pets = ['Cat', 'Dog', 'Mouse', 'Rabbit', 'Parrot'];
+const url = ['CatURL', 'DogURL', 'MouseURL', 'RabbitURL', 'ParrotURL'];
+const status = ['available', 'pending', 'sold', 'available', 'sold'];
+
+
+/**
+ * For loop for constructing Pet function
+ */
+
+for (let index = 0; index < pets.length; index++) {
+    var Pets = new Pet(index,pets[index],url[index],status[index])
+}
 
 /**
  * Test cases for the constructor function Pet
  */
-let Pets = new Pet(1,'Goldfish','GoldfishURL','available')
+
 describe('Testing the Pets Constructor Function', function () {
   describe('Pets parameters should be as provided by user', function () {
     it('should return category with ID 1', function () {
-      assert.equal(Pets.id, 1);
+      assert.equal(Pets.id, 4);
     });
     it('should return correct pet name - Goldfish', function () {
-        assert.equal(Pets.name, 'Goldfish');
+        assert.equal(Pets.name, 'Parrot');
       });
     it('should return the correct photo url as: GoldfishURL', function () {
-        assert.equal(Pets.photoUrls, 'GoldfishURL');
+        assert.equal(Pets.photoUrls, 'ParrotURL');
       });
     it('should return the correct available status as: available', function () {
-        assert.equal(Pets.status, 'available');
+        assert.equal(Pets.status, 'sold');
       });  
     it('The printPet function should print the id, name, photoUrl and status of the pet', () => {
-        assert.equal(Pets.printPet(), '1 - Goldfish, photoUrl - GoldfishURL, status - available');
+        assert.equal(Pets.printPet(), '4 - Parrot, photoUrl - ParrotURL, status - sold');
     });  
     
   });
@@ -127,13 +143,21 @@ const phones = ['111', '222', '333'];
 const userStatuses = [1, 2, 3];
 
 /**
+ * For loop for constructing users function
+ */
+
+for (let index = 0; index < usernames.length-2; index++) {
+    var newUser = new User(index,usernames[index],firstNames[index],lastNames[index],emails[index], passwords[index] ,phones[index],userStatuses[index])
+}
+
+/**
  * test cases for the user function.
  */
-let newUser = new User(101,'shivaji123','Shivaji','Darade','test1@mail.com', 'test1' ,111,1)
+
 describe('Testing the users Constructor Function', function () {
     describe('User parameters should be as provided by user', function () {
         it('Should return user id same as provided by the user', () => {
-            assert.equal(newUser.id, 101);
+            assert.equal(newUser.id, 0);
         });
 
         it(`Should return user name same as provided by the user`, () => {
@@ -165,7 +189,7 @@ describe('Testing the users Constructor Function', function () {
         });
 
         it('The printUser function should print the id, username, firstName, lastName, email, password, phone and userStatus of the user', () => {
-            assert.equal(newUser.printUser(), '101 - shivaji123, Shivaji, Darade, test1@mail.com, test1, 111, 1');
+            assert.equal(newUser.printUser(), '0 - shivaji123, Shivaji, Darade, test1@mail.com, test1, 111, 1');
         });  
       
     });
