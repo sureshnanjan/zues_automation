@@ -7,7 +7,7 @@
 function Category(id, name) {
     this.id = id;
     this.name = name;
-    this.printCategory = function () {
+    this.categoryPrint = function () {
         //console.log(`${this.name} - ${this.id}`);
         return `${this.name} - ${this.id}`;
     }
@@ -35,11 +35,11 @@ describe('Testing the Category Constructor Function', function () {
     it('should return category with ID 3', function () {
       assert.equal(fish.id, 1);
     });
-    it('should return correct category name - fish', function () {
+    it('Should return correct category name - fish', function () {
         assert.equal(fish.name, 'cat');
       });
-    it('should print the correct print value as: fish - 3', function () {
-        assert.equal(fish.printCategory(), 'cat - 1');
+    it('Should print the correct print value as: fish - 3', function () {
+        assert.equal(fish.categoryPrint(), 'cat - 1');
       });
   });
 });
@@ -57,7 +57,7 @@ function Pet(id, name, photoUrls, status) {
     this.name = name;
     this.photoUrls = photoUrls;
     this.status = status;
-    this.printPet = function () {
+    this.petPrint = function () {
         //console.log(`${this.id} - ${this.name}, photoUrl - ${this.photoUrls}, status - ${this.status}`);
         return `${this.id} - ${this.name}, photoUrl - ${this.photoUrls}, status - ${this.status}`;
     }
@@ -85,20 +85,20 @@ for (let index = 0; index < pets.length; index++) {
 
 describe('Testing the Pets Constructor Function', function () {
   describe('Pets parameters should be as provided by user', function () {
-    it('should return category with ID 1', function () {
+    it('Should return category with ID 1', function () {
       assert.equal(Pets.id, 4);
     });
-    it('should return correct pet name - Goldfish', function () {
+    it('Should return correct pet name - Goldfish', function () {
         assert.equal(Pets.name, 'Parrot');
       });
-    it('should return the correct photo url as: GoldfishURL', function () {
+    it('Should return the correct photo url as: GoldfishURL', function () {
         assert.equal(Pets.photoUrls, 'ParrotURL');
       });
-    it('should return the correct available status as: available', function () {
+    it('Should return the correct available status as: available', function () {
         assert.equal(Pets.status, 'sold');
       });  
-    it('The printPet function should print the id, name, photoUrl and status of the pet', () => {
-        assert.equal(Pets.printPet(), '4 - Parrot, photoUrl - ParrotURL, status - sold');
+    it('The petPrint function should print all the Pet details', () => {
+        assert.equal(Pets.petPrint(), '4 - Parrot, photoUrl - ParrotURL, status - sold');
     });  
     
   });
@@ -125,7 +125,7 @@ function User(id, username, firstName, lastName, email, password, phone, userSta
     this.password = password;
     this.phone = phone;
     this.userStatus = userStatus;
-    this.printUser = function () {
+    this.userPrint = function () {
         //console.log(`${this.id} - ${username}, ${firstName}, ${lastName}, ${email}, ${password}, ${phone}, ${userStatus}`);
         return `${this.id} - ${username}, ${firstName}, ${lastName}, ${email}, ${password}, ${phone}, ${userStatus}`;
     }
@@ -188,8 +188,8 @@ describe('Testing the users Constructor Function', function () {
             assert.equal(newUser.userStatus, 1);
         });
 
-        it('The printUser function should print the id, username, firstName, lastName, email, password, phone and userStatus of the user', () => {
-            assert.equal(newUser.printUser(), '0 - shivaji123, Shivaji, Darade, test1@mail.com, test1, 111, 1');
+        it('The userPrint function should print all the user details', () => {
+            assert.equal(newUser.userPrint(), '0 - shivaji123, Shivaji, Darade, test1@mail.com, test1, 111, 1');
         });  
       
     });
