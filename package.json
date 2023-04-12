@@ -1,0 +1,26 @@
+{
+  "name": "zues_automation",
+  "version": "1.0.0",
+  "description": "This is a demo for Node Package Manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"I am testing the code\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sureshnanjan/zues_automation.git"
+  },
+  "keywords": [
+    "playwrite",
+    "automation"
+  ],
+  "author": "Mrunal Jamsandekar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sureshnanjan/zues_automation/issues"
+  },
+  "homepage": "https://github.com/sureshnanjan/zues_automation#readme",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
