@@ -39,7 +39,7 @@ function Pet(id, name, imageUrl, status){
     this.status = status;
     this.printPet = function(){
         console.log(`${this.id} - PetName - ${this.name}, PhotoUrl - ${this.imageUrl}, Status - ${this.status}`);
-        return `${this.id} - ${this.name}, PhotoUrl - ${this.imageUrl}, Status - ${this.status}`;
+        return `${this.id} - PetName - ${this.name}, PhotoUrl - ${this.imageUrl}, Status - ${this.status}`;
     }
 }
 
@@ -173,7 +173,7 @@ describe('Testing constructor functions', function(){
         })
 
         it('The printPet function should print pet details - id, name, photoUrl, status', function(){
-            assert.equal(turtle.printPet(), '1000 - PetName -  Turtle, PhotoUrl - turtle.png, Status - Pending');
+            assert.equal(turtle.printPet(), '1000 - PetName - Turtle, PhotoUrl - turtle.png, Status - Pending');
         })
     })
 
