@@ -16,9 +16,10 @@ const result1 = Greetings1(); //2nd line
  * @param {string} name This a string parameter where a name has to be passed. 
  */
 function Greetings2(name) {
-    result2 = console.log(`Hi, how are you ${name}?`);
+    result2 = `Hi, how are you ${name}?`;
+    return result2;
 }
-Greetings2("Maithili"); //3rd line
+console.log(Greetings2("Somename")); //3rd line
 
 
 function loop(word,times) {
@@ -68,15 +69,21 @@ describe('Description of loop function', function () {
     it('Greetings1 function testing', function () {
       assert.equal(Greetings1().length, 20);
   });
+  it('Greetings1 function testing', function () {
+    let result = Greetings2("Maithili");
+    assert.equal(console.log(result),"Hi, how are you Maithii?" );
+});
   });
 });
 
-/*describe('Testing the 2nd Greetings function',function() {
-    it("Let's check it", function(){
-        assert.equal(Greetings1().length, 20);
-    });
+describe("Testing describe command - ", function() {
+  it("First test case for Greetings2 function", function() {
+    assert.equal(Greetings2("Maithili").length,31);
+  })
 })
-*/
+
+ 
+  
 
 
 
