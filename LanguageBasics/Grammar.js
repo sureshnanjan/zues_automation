@@ -23,3 +23,4 @@ console.log(PetStoreLogo["font"]);
 const myPets = ['fish','dogs','cats'];
 console.log(myPets.length);
 
+

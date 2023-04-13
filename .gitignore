@@ -103,3 +103,6 @@ dist
 
 # TernJS port file
 .tern-port
+LanguageBasics/MochaTest.js
+out/global.html
+out/index.html
