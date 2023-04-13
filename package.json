@@ -16,6 +16,7 @@
   "dependencies": {
     "jsdoc": "^4.0.2",
     "node": "^19.8.1",
+    "playwright": "^1.32.3",
     "typescript": "^5.0.4"
   }
 }
