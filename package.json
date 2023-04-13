@@ -7,7 +7,9 @@
     "test": "echo I'm testing the code"
   },
   "keywords": [
-    "Playwright"
+    "Playwright",
+    "Automation",
+    "zues"
   ],
   "author": "Shubham Nigam",
   "license": "ISC"
