@@ -12,5 +12,10 @@
     "zues"
   ],
   "author": "Shubham Nigam",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jsdoc": "^4.0.2",
+    "node": "^19.8.1",
+    "typescript": "^5.0.4"
+  }
 }
