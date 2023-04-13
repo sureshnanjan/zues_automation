@@ -1,0 +1,14 @@
+{
+  "name": "zues_automation",
+  "version": "1.0.0",
+  "description": "This is demo node package manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo I'm testing the code"
+  },
+  "keywords": [
+    "Playwright"
+  ],
+  "author": "Shubham Nigam",
+  "license": "ISC"
+}
