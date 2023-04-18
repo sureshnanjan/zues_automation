@@ -1,2 +1,2 @@
 "use strict";
-console.log("Javascript")
+console.log('My first automation setup');
