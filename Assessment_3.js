@@ -79,9 +79,9 @@ function Pet(petid ,categid, categname, petname, photoURLS, tagid, tagname, pets
     this.petstatus = petstatus
     }
 let Pets = [
-    new Pet(1,1,"Dog","BullDog","https://petstore.octoperf.com/images/dog1.gif",1,"","Available"),
-    new Pet(2,2,"Birds","Amazon Parrot","https://petstore.octoperf.com/images/bird2.gif","","Cute","Sold"),
-    new Pet(3,2,"Birds","Finch","https://petstore.octoperf.com/images/bird1.gif", 2 ,"","Available")
+    new Pet(1,1,"Dog","BullDog","https://petstore.octoperf.com/images/dog1.gif",1,"Angry","Available"),
+    new Pet(2,2,"Birds","Amazon Parrot","https://petstore.octoperf.com/images/bird2.gif","1","Cute","Sold"),
+    new Pet(3,2,"Birds","Finch","https://petstore.octoperf.com/images/bird1.gif", 2 ,"Angry","Available")
     ] 
 Pets.forEach(element => {
         console.log(element);
