@@ -87,3 +87,5 @@ Pets.forEach(element => {
         console.log(element);
     }); 
 
+let promise = new Promise(function (resolve, reject))
+
