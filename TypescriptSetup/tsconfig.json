@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "lib": [
+      "es6"
+    ],
+    "module": "commonjs",
+    "rootDir": "typescriptsrc",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "buildtarget",
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitAny": true
+  }
+}
