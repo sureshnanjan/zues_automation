@@ -61,7 +61,7 @@ Tag(51, 'Exotic Varieties')
  * @param {String} status This is the status of the Pet which willl have 3 values available, pending and sold
  */
 
-
+/*
 function Pet(id, __proto__: Category, name, photourl, __proto__: Tag, status) {
     let petid = id
     let petname = name
@@ -69,7 +69,7 @@ function Pet(id, __proto__: Category, name, photourl, __proto__: Tag, status) {
     let petstatus = status
     console.log(`Pet Id is ${petid},Pet name is ${petname},URL of pgoto is ${peturl} and Pet status is ${petstatus}`)
 }
-
+*/
 
 /**
  * THis function will bring Order related field

@@ -5,7 +5,7 @@ Prerequisite = ['node.js', 'Visual Studio Code']
 const location = 'From Home'
 let startdate = new Date("2023-02-17")
 let enddate = new Date("2023-10-06")
-count CountOfParticipants = 40
+const CountOfParticipants = 40
 const CountofParticicpants = 40
 console.log('Objective of the Training is '+objective)
 console.log('Name of the Trainer is '+TrainerName)
