@@ -20,7 +20,7 @@ flag = false;
   number=number/10;
  }
  if(original==rev)
- return falg=true;
+ return flag=true;
  else return flag=false;
 }
 

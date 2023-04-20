@@ -19,7 +19,7 @@ function Order(id, petId, quantity, shipDate, status, complete){
     
     // print
     var assert = require (`assert`)
-    describe('Testing the number', function (name) {
+    describe('Testing the Orders', function (name) {
     describe('Testing Order function', () => {
             let Order1 = new Order('BD-01', 'BD', '6', '7/4', 'placed', 'no');
     
