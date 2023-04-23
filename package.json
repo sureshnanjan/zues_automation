@@ -1,0 +1,18 @@
+{
+  "name": "zues_automation",
+  "version": "1.0.0",
+  "description": "The Training project for Playwright Automation with Typescript",
+  "main": "constructorTask.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.32.3"
+  },
+  "dependencies": {
+    "mocha": "^10.2.0"
+  }
+}
