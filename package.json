@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "\"This is a training\"",
   "main": "entry.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "keywords": [
     "automation"
   ],
   "author": "Relvis Buthello",
   "license": "ISC",
   "devDependencies": {
+    "@playwright/test": "^1.32.3",
     "@types/node": "^18.15.11",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2",
     "jsdoc": "^4.0.2",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.22",
@@ -21,7 +22,6 @@
   },
   "dependencies": {
     "-": "^0.0.1",
-    "eslint": "^8.38.0",
     "g": "^2.0.1",
     "playwright": "^1.32.0"
   },
