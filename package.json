@@ -1,0 +1,29 @@
+{
+    "name": "zues_automation",
+    "version": "1.0.0",
+    "description": "The Training project for Playwright Automation with Typescript",
+    "main": "ConstructorFunctionsAssignment1.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "lint": "eslint . --ext .ts"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/sureshnanjan/zues_automation.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/sureshnanjan/zues_automation/issues"
+    },
+    "homepage": "https://github.com/sureshnanjan/zues_automation#readme",
+    "devDependencies": {
+      "@typescript-eslint/eslint-plugin": "^5.59.0",
+      "@typescript-eslint/parser": "^5.59.0",
+      "eslint": "^8.38.0",
+      "nodemon": "^2.0.22",
+      "ts-node": "^10.9.1",
+      "typescript": "^5.0.4"
+    }
+  }
