@@ -122,7 +122,7 @@ var apiresponses1 =[
 ];
 
 // To print the api responses 
-for(i=0;i<2;i++){
+for(i=0;i<apiresponses1.length;i++){
     apiresponses1[i].printApiresponses();
 }
 
@@ -173,7 +173,7 @@ var user1= [
         ),
 ];
 
-for(i=0;i<2;i++){
+for(i=0;i<user1.length;i++){
     user1[i].printUserDetails();
 }
 
@@ -196,7 +196,7 @@ var tags =[
     new tag(2,"colourful"),
 ];
 
-for(i=0;i<1;i++){
+for(i=0;i<tags.length;i++){
     tags[i].printTag();
 }
 
@@ -237,7 +237,7 @@ var pets = [
     new pet(1,"Ringo",array1[2],"https://www.petimage1.com/ringo.jpg",tags[0],"pending"),
 ];
 
-for(i=0;i<1;i++){
+for(i=0;i<pets.length;i++){
     pets[i].printPet();
 }
 
@@ -279,6 +279,6 @@ var orders = [
     new order(2,2,2,"2023-04-05","shipped",false),
 ];
 
-for(i=0;i<2;i++){
+for(i=0;i<orders.length;i++){
     orders[i].printOrder();
 }
