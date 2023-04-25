@@ -1,0 +1,22 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "description": "This is a demo for Node Package Manager",
+  "main": "Sample.js",
+  "scripts": {
+    "test": "echo \" This is a test command\""
+  },
+  "keywords": [
+    "Playwrite"
+  ],
+  "author": "Saba",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdoc": "github:jsdoc/jsdoc",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "g": "^2.0.1"
+  }
+}
