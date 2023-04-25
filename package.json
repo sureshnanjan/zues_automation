@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/sureshnanjan/zues_automation/issues"
   },
-  "homepage": "https://github.com/sureshnanjan/zues_automation#readme"
+  "homepage": "https://github.com/sureshnanjan/zues_automation#readme",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
 }
