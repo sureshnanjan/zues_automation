@@ -1,0 +1,35 @@
+{
+  "name": "zues_automation",
+  "version": "1.0.0",
+  "description": "This is demo node package manager",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "npx nodemon",
+    "build": "rimraf ./build & tsc",
+    "lint": "eslint . --ext .ts",
+    "test": "echo I'm testing the code"
+  },
+  "keywords": [
+    "Playwright",
+    "Automation",
+    "zues"
+  ],
+  "author": "Shubham Nigam",
+  "license": "ISC",
+  "dependencies": {
+    "jsdoc": "^4.0.2",
+    "mocha": "^10.2.0",
+    "node": "^19.8.1",
+    "playwright": "^1.32.3",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.38.0",
+    "nodemon": "^2.0.22",
+    "rimraf": "^5.0.0",
+    "ts-node": "^10.9.1"
+  }
+}

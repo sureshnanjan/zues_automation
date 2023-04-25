@@ -1,0 +1,6 @@
+{
+    "watch": ["src"],
+    "exit": ".ts,.js",
+    "ignore": [],
+    "exec": "npx ts-node ./src/typescriptsrc/index.ts"
+}
