@@ -200,7 +200,7 @@ function Order(id, petId, quantity, shipDate, status, complete) {
 
 //Creates an array for order
 let Orders = [
-    new Order("1","856258",1,"2023-04-30","pending",true),
+    new Order("1","856258",1,"2023-04-30","approved",true),
 ];
 
  //Print the orders values
