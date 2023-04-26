@@ -19,3 +19,18 @@ test('Count of Links on Home Page', async ({ page }) => {
     const result = await page.getByRole('link').count()
     expect(result).toBe(46);
 });
+
+test('Adding elements works', async ({ page }) => {
+    await page.goto('https://the-internet.herokuapp.com/');
+    await page.getByRole('link', {name : 'Add/Remove Elements'}).click();
+    await page.getByRole('button', {name : 'Add Element'}).click();
+    await expect(page.getByRole('button', {name : 'Delete'})).toHaveCount(1);
+});
+
+test('Removing elements works', async ({ page }) => {
+    await page.goto('https://the-internet.herokuapp.com/');
+    await page.getByRole('link', {name : 'Add/Remove Elements'}).click();
+    await page.getByRole('button', {name : 'Add Element'}).click();
+    await page.getByRole('button', {name : 'Delete'}).click();
+    await expect(page.getByRole('button', {name : 'Delete'})).toHaveCount(0);
+});
