@@ -78,3 +78,13 @@ greeting();
 console.log(repeatWord('dragons',4).length == 31) //length equals 31
 console.log(repeatWord('a',6).length == 6)
 
+let myObj = {name:"jamima",prop1:1,prop2:3}
+let myBigObj = {prop1:1,prop2:2,prop3:3,prop10:10}
+console.log(myObj.name)
+console.log(myObj.prop1)
+for (const key in myBigObj) {
+  if(Object.prototype.hasOwnProperty.call(myObj,key)){
+    const element =myObj[key];
+    myObj.hasOwnProperty("prop1")
+  }
+}
