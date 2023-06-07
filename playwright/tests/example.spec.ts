@@ -21,4 +21,5 @@ test('get started link', async ({ page }) => {
 test('Verify URL is redirecting and header', async ({ page }) => {
   await page.goto('https://the-internet.herokuapp.com/');
   await page.getByRole('heading');
+  
 });
