@@ -1,12 +1,12 @@
 {
   "devDependencies": {
+    "@playwright/test": "^1.33.0",
     "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "eslint": "^8.38.0",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.22",
-    "playwright": "^1.32.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
@@ -85,6 +85,7 @@
     "path-is-absolute": "^1.0.1",
     "picomatch": "^2.3.1",
     "playwright-core": "^1.32.1",
+    "playwright-test": "^9.1.0",
     "pstree.remy": "^1.1.8",
     "randombytes": "^2.1.0",
     "readdirp": "^3.6.0",
