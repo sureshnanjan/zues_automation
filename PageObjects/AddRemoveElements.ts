@@ -14,7 +14,7 @@ export class AddRemoveElements {
 
 constructor(page: Page) {
     this.page = page;
-    this.pageHeading = page.locator('h1', { hasText: 'Add/Remove Elements' });
+    this.pageHeading = page.locator('h3', { hasText: 'Add/Remove Elements' });
     this.getAddElement = page.locator('a', {hasText: 'Add Element'});
     this.getDelete = page.locator('b', {hasText: 'Delete'});
   }
