@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
-import{ IAddRemoveElements } from '../Operations/IAddRemoveElementsOperations' //import the basic skeleton of this class from the Interface defined in IHomePageOperations file.
+import{ IAddRemoveElements } from '../Interfaces/IAddRemoveElementsOperations' //import the basic skeleton of this class from the Interface defined in IHomePageOperations file.
 
 /**
  * This is the class that implements the IAddRemoveElements Interface
@@ -74,8 +74,9 @@ export class AddRemoveElementswithInterface implements IAddRemoveElements {
    * Verifies the number of added elements.
    * @returns {Promise<number>} - The count of delete buttons (representing the added elements).
    */
-  async verifyAddedElements(): Promise<number> {
+  async verifyAddedElements(count: number) {
     const deleteButtons = await this.page.$$(this.deleteButton);
-    return deleteButtons.length;
+    const elementsNo = deleteButtons.length;
+    expect(elementsNo).toBe(count);
   }
 }

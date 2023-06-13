@@ -1,6 +1,6 @@
 import { expect, Locator, Page, chromium } from '@playwright/test';
 import { environment } from '../Utilities/heroku_config';
-import{ IHomePageOperations } from '../Operations/IHomePageOperations' //import the basic skeleton of this class from the Interface defined in IHomePageOperations file.
+import{ IHomePageOperations } from '../Interfaces/IHomePageOperations' //import the basic skeleton of this class from the Interface defined in IHomePageOperations file.
 
 /**
  * This is the class that implements the IHomePageOperations Interface

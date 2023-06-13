@@ -73,8 +73,9 @@ export class AddRemoveElements {
    * Verifies the number of added elements.
    * @returns {Promise<number>} - The count of delete buttons (representing the added elements).
    */
-  async verifyAddedElements(): Promise<number> {
+  async verifyAddedElements(count: number) {
     const deleteButtons = await this.page.$$(this.deleteButton);
-    return deleteButtons.length;
+    const elementsNo = deleteButtons.length;
+    expect(elementsNo).toBe(count);
   }
 }
