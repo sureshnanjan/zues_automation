@@ -7,7 +7,7 @@
     "playwright": "^1.32.0"
   },
   "devDependencies": {
-    "mocha": "^10.2.0"
+    "@playwright/test": "^1.35.1"
   },
   "scripts": {
     "test": "mocha"
