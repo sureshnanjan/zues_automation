@@ -1,6 +1,7 @@
 import {expect, Locator, Page } from '@playwright/test';
+import { IHerokuHomePage } from '../Operations/IHerokuHomePageOps';
 
-export class HerokuHomePage{
+export class HerokuHomePage implements IHerokuHomePage{
     readonly page: Page
     readonly heading: Locator
     readonly subHeading: Locator

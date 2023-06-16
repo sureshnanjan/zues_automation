@@ -1,18 +1,25 @@
 import {expect, Locator, Page } from '@playwright/test';
+import { IContextMenu } from '../Interfaces/IContextMenuOps';
 
-export class ContextMenu{
+export class ContextMenu implements IContextMenu{
     readonly page
     readonly box
+    readonly heading
 
     constructor(page: Page){
         this.page = page
         this.box = page.locator('//*[@id="hot-spot"]')
+        this.heading = page.locator('//*[@id="content"]/div/h3')
+    }
+
+    async verifyHeading(){
+        await expect(this.heading).toHaveText('You selected a context menu')
     }
 
     /**
      * Function to right click the context menu
      */
-    async rightClick(){
+    async launchContextMenu(){
         await this.box.click({ button: 'right' })
     }
 
