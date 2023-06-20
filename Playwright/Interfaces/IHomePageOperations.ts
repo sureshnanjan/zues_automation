@@ -8,8 +8,8 @@ export interface IHomePageOperations{
     /**
      * This will navigate to the Hroku Home Page and check the Heading and Sub Heading
      */
-   readonly pageHeading: Locator;
-   readonly subHeading: Locator;
+   readonly pageHeading: any;
+   readonly subHeading: any;
     clickLink(linkText: string): any;
     checkAvailableLinks(noOfLinks: number): any;
     checksubHeading(headingText: string): any

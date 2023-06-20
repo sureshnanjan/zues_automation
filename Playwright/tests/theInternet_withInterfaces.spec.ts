@@ -3,6 +3,7 @@ import { HomePagewithInterface } from '../WebAppInterfaceImplementation/HomePage
 import { AddRemoveElementswithInterface } from '../WebAppInterfaceImplementation/AddRemoveElementswithInterface';
 import { environment } from '../Utilities/heroku_config';
 import { fileUploadswithInterface } from '../WebAppInterfaceImplementation/FileUploadswithInterface';
+import { floatingMenuwithInterface } from '../WebAppInterfaceImplementation/FloatingMenuwithInterface';
 
 let herokuHomePage: HomePagewithInterface;
 
@@ -169,3 +170,35 @@ test.describe('File Upload', () => {
   });
 });
 
+//-------Floating Menu--------------------
+
+test.describe('Floatin Menu', () => {
+  let floatingMenuPage: floatingMenuwithInterface;
+  test.beforeEach(async ({ page }) => {
+    floatingMenuPage = new floatingMenuwithInterface(page);
+    // Visit the homepage and navigate to the Floating Menu page
+    await herokuHomePage.visit();
+    await herokuHomePage.clickLink("Floating Menu");
+  });
+
+  /**
+   * Test to check the page heading on the Home page.
+   */
+  test('Check page heading', async ({ page }) => {
+    await floatingMenuPage.checkPageHeading('Floating Menu');
+  });
+
+  test('Floating Menu Visible?', async ({ page }) => {
+    const first = await floatingMenuPage.isFloatingMenuVisible();
+    await floatingMenuPage.scrollPage(3,'down');
+    const second = await floatingMenuPage.isFloatingMenuVisible();
+    await floatingMenuPage.scrollPage(2,'up');
+    const third = await floatingMenuPage.isFloatingMenuVisible();
+    await expect(first, second, third).toBe(true)
+  });
+  test.only('Floating Menu Options', async ({ page }) => {
+    console.log(floatingMenuPage.aboutOption)
+    const result = await floatingMenuPage.checkMenuOptionLink(floatingMenuPage.aboutOption); // Pass Locator object directly
+  console.log(result);
+  });
+});
