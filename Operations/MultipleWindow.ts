@@ -1,12 +1,20 @@
 export interface MultipleWindow{
  /**
  * Verifying the Multiple Window Link on HerokoApp.
- * Get the title displayed on the page and verify it.
- * Verify the Text of the Link and store it.
+ * Store the title displayed on the page and verify it.
  */
     pageTitle: String;
+    verifyWindowPage(): void; 
+   
+    /** Check the link text and store it.
+     * Verify the link functionality
+    */
+  
     linkText: String;
-/** Performe all the verification of the page and idnetify the new window and it's text*/
+    verifylink(): void; 
+
+    /** Performe all the verification of the page and idnetify the new window and it's text*/
+    
     newpagetitle: string;
-    MultipleWindowPage(): void; 
+    verifyNewWindowPage(): void; 
 }
