@@ -2,11 +2,16 @@ import { MultipleWindow } from "../Operations/MultipleWindow";
 
 export class MultipleWindowPage implements MultipleWindow{
     pageTitle: String;
-    linkText: String;
-    newpagetitle: string;
-    MultipleWindowPage(): void {
+    verifyWindowPage(): void {
         throw new Error("Method not implemented.");
     }
-
+    linkText: String;
+    verifylink(): void {
+        throw new Error("Method not implemented.");
+    }
+    newpagetitle: string;
+    verifyNewWindowPage(): void {
+        throw new Error("Method not implemented.");
+    }
 
  }

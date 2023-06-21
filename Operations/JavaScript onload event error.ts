@@ -4,6 +4,8 @@ export interface onLoadError{
  * Get the error displayed on the page and verify it.
  */
     errorTextMessage: String;
+
 /** Performe all the verification of the page.*/
-    errorText(): void
+
+    verifyerrorText(): void
 }
