@@ -1,10 +1,10 @@
 export interface IContextMenu{
    
-    visit(): Promise<void>;
-    checkHeading(): void;
-    checkParagraph1(): void;
-    checkParagraph2(): void;
-    checkdashbox(): void;
-    // checkdialog(): void;
-    checkalerttext(): void;
+    goto(): Promise<void>;
+    checkHeading(expectedHeadingContextPage: string): void;
+    checkParagraph(expectedParagraph1: string,expectedParagraph2: string): void;
+    checkDashBox(): void;
+    performRightClick(): void;
+    checkDialog(): void;
+    checkAlertText(): void;
 }

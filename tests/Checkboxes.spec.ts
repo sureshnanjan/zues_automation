@@ -9,7 +9,7 @@ test('Checkboxes functionality', async ({ page }) => {
     // Checkboxes link clicked
     await expect(page.locator('.heading')).toHaveText('Checkboxes');
     // Checkboxes pages launched
-    await page.getByRole('heading', { name: 'Checkboxes' }).click();
+    // await page.getByRole('heading', { name: 'Checkboxes' }).click();
     // Heading checked
     await page.getByRole('checkbox').first().check();
     // 1st check box checked
