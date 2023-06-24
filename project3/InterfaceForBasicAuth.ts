@@ -1,10 +1,10 @@
-export interface InterfaceForBasicAuth{
+interface InterfaceForBasicAuth{
 
-    goto();
-    CorrectData();
-    InCorrectData();
-    NullData();
-    CancelButton();
-    loginPage();
+    goto(): void,
+    CorrectData(): void,
+    InCorrectData(): void,
+    NullData(): void,
+    CancelButton(): void,
+    loginPage(): void
 
 }
