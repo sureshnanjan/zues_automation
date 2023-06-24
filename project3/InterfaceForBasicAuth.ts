@@ -1,10 +1,6 @@
 interface InterfaceForBasicAuth{
 
-    goto(): void,
-    CorrectData(): void,
-    InCorrectData(): void,
-    NullData(): void,
-    CancelButton(): void,
+    LoadCorrectData(): void,
     loginPage(): void
 
 }
