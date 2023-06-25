@@ -3,6 +3,7 @@ import { Checkbox_page } from '../../PageObejct/checkbox';
 import { home_page } from '../../PageObejct/homepage';
 import { FormAuth_Page } from '../../PageObejct/formauth';
 import { Redirection_page } from '../../PageObejct/redirection';
+import { jspage } from '../../PageObejct/javascriptalertspage';
 
 
 
@@ -66,3 +67,28 @@ test('This is a test for redirection', async ({ page }) => {
   await redirect.gotonextpage();
   
 });
+
+
+
+
+test('Verifying JSalert', async ({ page }) => {
+
+  const javascriptpage = new jspage();
+  javascriptpage.invoke_jsalert();
+  javascriptpage.verify_alerttext();
+  javascriptpage.verify_resulttext();
+
+})
+
+test('Verifying JSPrompt', async ({ page }) => {
+
+  const javascriptpage = new jspage();
+  javascriptpage.invoke_jsprompt();
+  javascriptpage.
+
+})
+
+test('Verifying JSconfirm', async ({ page }) => {
+
+})
+
