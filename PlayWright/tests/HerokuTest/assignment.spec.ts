@@ -4,20 +4,20 @@ import { jspage } from '../../pageObjects/javascriptalertspage';
 
 test('Validating heading of JS Alerts Page', async ({ page }) => {
     const javascriptpage = new jspage();
-    javascriptpage.verify_heading();
+    javascriptpage.verifyHeading();
     })
 
 test('Validating subheading of JS Alerts Page', async ({ page }) => {
     const javascriptpage = new jspage();
-    javascriptpage.verify_subheading();
+    javascriptpage.verifySubHeading();
      })
 
 test('Verifying JSAlert Functionality', async ({ page }) => {
      const javascriptpage = new jspage();
-     javascriptpage.invoke_jsalert();
-     javascriptpage.verify_alerttext(Text);
-     javascriptpage.click_ok();
-     javascriptpage.verify_resulttext(Text);
+     javascriptpage.invokeJsAlert();
+     javascriptpage.verifyAlertText(Text);
+     javascriptpage.clickOk();
+     javascriptpage.verifyResultText(Text);
     
     })
 
