@@ -1,7 +1,8 @@
 import { expect, Locator, Page, test } from '@playwright/test';
+import { Ihover } from './Ihover';
 
     //Create clas to export
-    export class Hovers {
+    export class Hovers implements Ihover {
     /*Declare variables*/
     readonly page: Page;
     
@@ -12,12 +13,14 @@ import { expect, Locator, Page, test } from '@playwright/test';
     
     
     async goto() {
-        /*Load the drag and drop page*/
+        /*Load the hover page*/
         await this.page.goto('https://the-internet.herokuapp.com/hovers');  
 
     }
     
     async LocateElements() {
+
+        //Check for header, subheader and 3 images.
 
         await this.page.getByRole('heading', { name: 'Hovers' });
         await this.page.getByText('Hover over the image for additional information');
@@ -27,6 +30,8 @@ import { expect, Locator, Page, test } from '@playwright/test';
 
     }
     async HoverandCheck() {
+
+        //Hover over each images and check for corresponding heading and link
 
         await this.page.getByRole('img', { name: 'User Avatar' }).first().hover();  
         await this.page.getByRole('heading', { name: 'name: user1' });
