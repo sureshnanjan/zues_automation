@@ -1,6 +1,8 @@
-interface InterfaceForBasicAuth{
+export interface IBasicAuthOperation{
 
-    LoadCorrectData(): void,
-    loginPage(): void
+ClickBasicAuthLink(): Promise<void>
+CheckSuccessfulHeading(expected: String): Promise<void>
+CheckSuccessfulSubHeading(expected: String): Promise<void>
+CheckUnSucessfulHeading(expected: String): Promise<void>
 
 }
