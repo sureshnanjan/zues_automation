@@ -1,7 +1,8 @@
 import { Browser, expect, Locator, Page, test } from '@playwright/test';
+import { IBasicAuthOperation } from './InterfaceForBasicAuth';
 
     //Create clas to export
-    export class BasicAuth implements InterfaceForBasicAuth {
+    export class BasicAuth implements IBasicAuthOperation {
 
     readonly page: Page;
     
@@ -11,15 +12,23 @@ import { Browser, expect, Locator, Page, test } from '@playwright/test';
     }
     
     
-    async LoadCorrectData() {
+async ClickBasicAuthLink(){
 
-        //Test fields with correct details
-        
-        
-    }   
+    // Navigate to basic URL for Basic Authenication page
+}
+async CheckSuccessfulHeading(expected: String) {
 
-    async loginPage() {
+    // Once logged in, check for header "Basic Auth"
 
-        //Test content of page once logged in
-    
+}
+async CheckSuccessfulSubHeading(expected: String) {
+
+    // Once logged in, check for sub-header "Congratulations! You must have the proper credentials"
+
+}
+async CheckUnSucessfulHeading(expected: String) {
+
+    //Check heading of "Not authorized" once logged with incorrect credentials 
+
+}
 }
