@@ -1,19 +1,20 @@
-import { IHomePage } from "../Operations/IHomePage";
+import { IAddRemoveElements } from "../Operations/IAddRemoveElements";
 
-export class HomePage implements IHomePage{
+export class AddRemoveElements implements IAddRemoveElements{
     visit(): Promise<void> {
         throw new Error("Method not implemented.");
     }
-    gotoUrl(urlToNavigate: String): void {
+    checkHeading(expectedHeading: String): void {
         throw new Error("Method not implemented.");
     }
-    checkHomePageHeading(expectedHPHeading: String) {
+    addElements(element: Number): void {
         throw new Error("Method not implemented.");
     }
-    checkHomePageSubHeading(expectedHPSubheading: String) {
+    removeElements(element: Number): void {
         throw new Error("Method not implemented.");
     }
-    checkNumberOfLinks(expectedLinks: Number) {
+    availableElements(): void {
         throw new Error("Method not implemented.");
     }
+
 }
