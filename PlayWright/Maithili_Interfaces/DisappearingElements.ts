@@ -44,7 +44,7 @@ import { expect, Locator, Page, test } from '@playwright/test';
 
 
 
-        //Load the page and check for hrader, describing text and 5 Elements
+        //Load the page and check for header, describing text and 5 Elements
 
 
 
@@ -59,7 +59,7 @@ import { expect, Locator, Page, test } from '@playwright/test';
 
 
 
-        //Reoad the page and check for header, describing text and 4 Elements
+        //Reload the page and check for header, describing text and 4 Elements
 
 
 
