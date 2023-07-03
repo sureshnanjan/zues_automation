@@ -1,6 +1,6 @@
 // CheckboxesPage Automation
 import { expect, Locator, Page } from '@playwright/test';
-import { ICheckboxes } from '../Operations/ICheckboxes';
+import { ICheckboxes } from './ICheckboxes';
 
 // This is my HomePage behavior
 
