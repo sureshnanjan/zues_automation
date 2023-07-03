@@ -14,7 +14,7 @@ export interface IFormAuthentication{
      * Verify page heading
      * @param expectedPageHeading expected page heading
      */
-    checkPageHeading(expectePagedHeading: String): void;
+    checkPageHeading(expectePageHeading: String): void;
 
     /**
      * To check form components
