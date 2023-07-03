@@ -40,12 +40,12 @@ async dropdownlistoptions(){
     await this.dropdownList.click();
 }
 
-/**async checkdropdownlistoptions(){
+async checkdropdownlistoptions(){
     await expect(this.dropdownselectoption).toContainText('Please select an option')
     await expect(this.dropdownlistoption1).toContainText('Option 1')
     await expect(this.dropdownlistoption2).toContainText('Option 2')
 
-}*/
+}
 
 async selectfirstoption(){
     await this.dropdownlistoption1.click({force: true});
