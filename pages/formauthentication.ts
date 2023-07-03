@@ -4,6 +4,10 @@ export default class FormAuthentication{
 
     constructor(public page: Page){    }
 
+    async vistHomePage() {
+        await this.page.goto('https://the-internet.herokuapp.com/');
+    }
+
     async clickFormAutheticationLink() {
         await this.page.getByRole('link', { name: 'Form Authentication' }).click()
     }
