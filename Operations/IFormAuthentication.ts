@@ -55,7 +55,7 @@ export interface IFormAuthentication{
     verifySuccessfulLogin() : Promise<void>;
 
     /**
-     * Click on the Login button
+     * Click on the Logout button
      */
     clickLogoutButton() : Promise<void>;
 
