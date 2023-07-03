@@ -1,0 +1,45 @@
+import { test, expect } from '@playwright/test';
+import { HomePage } from '../PlaywrightImplementation/HomePage';
+import { NotificationMessagesPage } from '../PlaywrightImplementation/NotificationMessagesPage';
+
+/*test.skip('Verify navigation to Messages Functionality link', async ({ page }) => {
+    const Homepage = new HomePage(page);
+    const gotolink = new NotificationMessagesPage(page);
+    test.setTimeout(120000);
+    await Homepage.visit();
+    await gotolink.gotoNotificationMessagesPage();
+  });await page.goto('https://the-internet.herokuapp.com/notification_message_rendered');
+
+*/
+test('Verify Heading of Messages Functionality Page', async ({ page }) => {
+  const Homepage = new HomePage(page);
+  const gotolink = new NotificationMessagesPage(page);
+  const heading = new NotificationMessagesPage(page);
+  test.setTimeout(200000);
+  await Homepage.visit();
+  await gotolink.gotoNotificationMessagesPage();
+  await heading.checkHeading('Notification Message');
+});
+
+/*
+test('Verify Content of Messages Functionality Page', async ({ page }) => {
+  const Homepage = new HomePage(page);
+  const gotolink = new NotificationMessagesPage(page);
+  const Content = new NotificationMessagesPage(page);
+  test.setTimeout(200000);
+  await Homepage.visit();
+  await gotolink.gotoNotificationMessagesPage();
+  await Content.checkTextContent('The message displayed above the heading is a notification message. It is often u');
+});
+*//*
+
+test('Verify Content of Messages Functionality Page', async ({ page }) => {
+  const Homepage = new HomePage(page);
+  const gotolink = new NotificationMessagesPage(page);
+  const linkdata = new NotificationMessagesPage(page);
+  test.setTimeout(200000);
+  await Homepage.visit();
+  await gotolink.gotoNotificationMessagesPage();
+  await linkdata.verifyLink('Click here', '/notification_message');
+});*/
+
