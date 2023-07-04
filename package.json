@@ -4,7 +4,6 @@
   "description": "The Training project for Playwright Automation with Typescript",
   "main": "HelloJs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "npx nodemon",
     "buildtarget": "rimraf ./buildtarget && tsc"
   },
@@ -20,12 +19,19 @@
   },
   "homepage": "https://github.com/sureshnanjan/zues_automation#readme",
   "devDependencies": {
+    "@playwright/test": "^1.32.3",
     "@types/node": "^18.15.11",
+    "eslint": "^8.40.0",
+    "eslint-plugin-playwright": "^0.12.0",
+    "eslint-plugin-react": "^7.32.2",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.22",
     "playwright": "^1.32.0",
     "rimraf": "^5.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "moment": "^2.29.4"
   }
 }
