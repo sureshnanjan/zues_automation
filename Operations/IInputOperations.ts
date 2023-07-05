@@ -2,37 +2,45 @@
  * Operation for Inputs Page
  */
 export interface IInputOperations {
-    /**
-     * This method is used to check heading on Inputs Page
-     * @param expectedHeading - This parameter is used to pass the expected heading text.
-     */
-    checkHeading(expectedHeading: string): void;
+  
+  /**
+  * This method is used to visit Inputs Page
+  * */
+  gotoInputsPage(): Promise<void>
 
-    /**
-     * This method is used to check sub heading of inputs page
-     * @param expectedSubHeading - This parameter is used to pass the expected sub heading.
-     */
-    checkSunHeading(expectedSubHeading: string): void;
-
-    /**
-     * To Enter number in the number input box
-     * @param text  This parameter is used to enter number in numbers input field
-     */
-    inputNumber(text: number): void;
-
-    /**
-   * This method is used to verify the Next number
+  /**
+   * This method is used to check heading on Inputs Page
+   * @param headingText - This parameter is used to pass the expected heading text.
    */
-    checkNextNumber(): void;
-    
-    /**
-     * This method is used to verify the previous number
-     */
-    checkPreviousNumber(): void;
+  checkHeading(headingText: string): void;
 
-    /**
-  * To verify the number present in Number input field
-  * @param expectedNumber  This parameter is used to check number displayed in Number input field
-  */
-    verifyNumberInInputField(expectedNumber: number): void;
+  /**
+   * This method is used to check Number input field label
+   * @param numberInputFieldLabel - This parameter is used to pass the expected input field label.
+   */
+  checkInputFieldLabel(numberInputFieldLabel: string): void;
+
+   /**
+   * To Enter number in the number input field 
+   * @param Number  This parameter is used to enter number in Number input field
+   */
+   enterNumberInNumberInputField(Number: number): void;
+
+  /**
+   * To Enter number and verify in the number input field 
+   * @param Number  This parameter is used to enter number in Number input field and verify number displayed in input field
+   */
+  enterNumberAndVerifyInNumberInputField(Number: number): void;
+
+  /**
+ * This method is used to verify the Next number
+ *  @param expectedNumber  This parameter is used to check number displayed in Number input field
+ */
+  verifyNextNumber(expectedNumber: number): void;
+
+  /**
+   * This method is used to verify the previous number
+   * @param expectedNumber  This parameter is used to check number displayed in Number input field
+   */
+  verifyPreviousNumber(expectedNumber: number): void;
 }
