@@ -31,7 +31,7 @@ test('Heroku App Test', async ({ page }) => {
     })
 
     test.describe('Launch digest auth page and unsucessful creds', () => {
-      test.use({ httpCredentials: { username: 'admin', password: 'admin' } });
+      test.use({ httpCredentials: { username: 'xyz', password: 'admin' } });
       test('Unsucessfully sign in digest auth page with incorrect username', async ({ page }) => {
         const digestauth = new HerokuDigestAuth(page); 
         const homepage = new HomePage();
@@ -43,7 +43,7 @@ test('Heroku App Test', async ({ page }) => {
         await digestauth.CheckUnSucessfulHeading('Not authorized');
       });
 
-        test.use({ httpCredentials: { username: 'admin', password: 'admin1' } });
+        test.use({ httpCredentials: { username: 'admin', password: 'abcd' } });
         test('Unsucessfully sign in digest auth page with incorrect password', async ({ page }) => {
           const digestauth = new HerokuDigestAuthAuth(page); 
           const homepage = new HomePage();
@@ -55,7 +55,7 @@ test('Heroku App Test', async ({ page }) => {
           await digestauth.CheckUnSucessfulHeading('Not authorized');
         });
 
-        test.use({ httpCredentials: { username: 'admin1', password: 'admin1' } });
+        test.use({ httpCredentials: { username: 'xyz', password: 'abcd' } });
         test('Unsucessfully sign in digest auth page with incorrect username and password', async ({ page }) => {
           const digestauth = new HerokuDigestAuth(page); 
           const homepage = new HomePage();
