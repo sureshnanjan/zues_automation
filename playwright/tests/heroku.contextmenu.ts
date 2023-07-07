@@ -17,7 +17,7 @@ test.skip('Heroku App Home Page Heading is correct',async ({ page }) => {
       })
       
       test('Check Heading of Context menu page', async ({page}) =>{
-        const herokuApp = new IHomePage();
+        const herokuApp = new IHomePage(page);
         const contextMenu = new IContextMenu(page);
         await herokuApp.visit();
         await contextMenu.visit();

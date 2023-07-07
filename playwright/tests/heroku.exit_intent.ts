@@ -1,5 +1,5 @@
 import { chromium, Browser, Page } from 'playwright';
-import { IExitIntent } from '../../Operations/IExitIntent';;
+import { IExitIntent } from '../../Operations/herokuPage';;
 
 export class ExitIntent implements IExitIntent {
   private browser: Browser;
