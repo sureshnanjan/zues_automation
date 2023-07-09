@@ -2,13 +2,14 @@ import { test, expect } from '@playwright/test';
 import { HomePage } from '../PlaywrightImplementation/HomePage';
 test('Heroku App Test', async ({ page }) => {
     // Arrange
-    const hompepage = new HomePage();
+    const hompepage = new HomePage(page);
   
     // Act
-    hompepage.visit();
+
+    hompepage.visitPage('https://the-internet.herokuapp.com');
     const result = HomePage.getExampleCount();
 
     // Assert
-    expect(result).toBeEqueal(44);
+    expect(result).toEqual(44);
 
   });

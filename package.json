@@ -4,10 +4,10 @@
   "description": "The Training project for Playwright Automation with Typescript",
   "main": "index.js",
   "dependencies": {
-    "playwright": "^1.32.0"
+    "playwright": "^1.35.1"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^9.1.2",
+    "@cucumber/cucumber": "^7.3.2",
     "@playwright/test": "^1.35.1"
   },
   "scripts": {
