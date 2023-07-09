@@ -24,29 +24,29 @@ test('Verifying JSAlert Functionality', async ({ page }) => {
 
 test('Verifying JSConfirm Functionality with OK Button', async ({ page }) => {
      const javascriptpage = new jspage();
-     javascriptpage.invoke_jsconfirm();
-     javascriptpage.verify_alerttext(Text);
-     javascriptpage.click_ok();
-     javascriptpage.verify_resulttext(Text);
+     javascriptpage.invokeJsConfirm();
+     javascriptpage.verifyAlertText(Text);
+     javascriptpage.clickOk();
+     javascriptpage.verifyResultText(Text);
     
     })
 
 test('Verifying JSConfirm Functionality with Cancel Button', async ({ page }) => {
     const javascriptpage = new jspage();
-     javascriptpage.invoke_jsconfirm();
-     javascriptpage.verify_alerttext(Text);
-     javascriptpage.click_cancel();
-     javascriptpage.verify_resulttext(Text);
+     javascriptpage.invokeJsConfirm();
+     javascriptpage.verifyAlertText(Text);
+     javascriptpage.clickCancel();
+     javascriptpage.verifyResultText(Text);
 
 })
 
 test('Verifying JSPrompt Functionality with data and OK Button', async ({ page }) => {
     const javascriptpage = new jspage();
-    javascriptpage.invoke_jsprompt();
-    javascriptpage.verify_alerttext(Text);
-    javascriptpage.insert_text(Text);
-    javascriptpage.click_ok();
-    javascriptpage.verify_resulttext(Text);
+    javascriptpage.invokeJsPrompt();
+    javascriptpage.verifyAlertText(Text);
+    javascriptpage.inputValue(Text);
+    javascriptpage.clickOk();
+    javascriptpage.verifyResultText(Text);
 
 })
 
