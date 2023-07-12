@@ -14,7 +14,7 @@ export class NotificationMessagesPage implements INotificationMessagesOps {
     constructor(page: Page) {
         this.page = page;
         this.heading = page.getByRole('heading', { name: 'Notification Message' });
-        this.content1 = page.getByText('The message displayed above the heading is a notification message. It is often u');
+        this.content1 = page.getByLabel()
         //Some rudimentary examples include 'Action successful', 'Action unsuccessful, please try again', etc.
         this.pagetext = page.getByRole('link', { name: 'Click here' });
         this.pagelink = page.getByRole('link', { name: 'Click here' });
@@ -60,8 +60,4 @@ export class NotificationMessagesPage implements INotificationMessagesOps {
     closeNotificationMessage(): void {
         throw new Error("Method not implemented.");
     }
-}
-
-function visit() {
-    throw new Error("Function not implemented.");
 }
