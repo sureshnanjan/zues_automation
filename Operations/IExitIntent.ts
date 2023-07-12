@@ -1,5 +1,9 @@
 export interface IExitIntent {
     visit(): Promise<void>;
+    headertext : String;
+    contenttext : String;
+    verifyheader(); // Verify Heading of the page
+    verfiycontenttext(); // Verify Content of the page
     checkExitIntentOverlay(): Promise<boolean>;
     triggerExitIntent(): Promise<void>;
   }
