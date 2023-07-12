@@ -21,6 +21,11 @@ export interface IEnteryAdd{
      */
     verifycontent(expectedContext:string): void; 
     /**
+     * This methos is used to verify the heading of the pop-up
+     * @param expectedPopupHeading This is the expected heading of the pop-up
+     */
+    verifyPopupHeading(expectedPopupHeading:string): void;
+    /**
      * This method is used to verify the Content inside the pop-up
      * @param expectedContent - This is the expected content inside the pop-up to be verified
      */
