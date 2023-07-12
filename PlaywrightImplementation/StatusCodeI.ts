@@ -2,48 +2,6 @@ import { IStatusCode } from "../Operations/StatusCode";
 import { Locator, Page } from '@playwright/test';
 import assert from "assert";
 export class StatusCode implements IStatusCode{
-    static link() {
-        throw new Error('Method not implemented.');
-    }
-    static goBacktoStatusPage() {
-        throw new Error('Method not implemented.');
-    }
-    static page200() {
-        throw new Error('Method not implemented.');
-    }
-    static check200StatusCodePage() {
-        throw new Error('Method not implemented.');
-    }
-    static linkOnStatusPage() {
-        throw new Error('Method not implemented.');
-    }
-    static page404() {
-        throw new Error('Method not implemented.');
-    }
-    static check404StatusCodePage() {
-        throw new Error('Method not implemented.');
-    }
-    static page301() {
-        throw new Error('Method not implemented.');
-    }
-    static check301StatusCodePage() {
-        throw new Error('Method not implemented.');
-    }
-    static page500() {
-        throw new Error('Method not implemented.');
-    }
-    static check500StatusCodePage() {
-        throw new Error('Method not implemented.');
-    }
-    static goto() {
-        throw new Error('Method not implemented.');
-    }
-    static checkheading() {
-        throw new Error('Method not implemented.');
-    }
-    static checkcontent() {
-        throw new Error('Method not implemented.');
-    }
     readonly page: Page;
     Content: Locator;
     pageHeading: Locator;

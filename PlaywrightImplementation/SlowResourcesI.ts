@@ -1,17 +1,8 @@
-import { Locator, Page } from '@playwright/test';
+import { expect,Locator, Page } from '@playwright/test';
 import { Slowresource } from "../Operations/SlowResources"; 
 import assert from 'assert';
     /**Create clas to export*/
-    export class response implements Slowresource {
-      static goto() {
-        throw new Error('Method not implemented.');
-      }
-      static checkheading() {
-        throw new Error('Method not implemented.');
-      }
-      static checkcontent() {
-        throw new Error('Method not implemented.');
-      }
+    export class response implements Slowresource {  
     /**Declare variables*/
     readonly page: Page;
         pageHeading: Locator;
