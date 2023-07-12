@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
 import { INotificationMessagesOps } from "../Operations/INotificationMessagesOps";
 import { IHomePage } from "../Operations/IHomePage";
 import assert from "assert";
@@ -10,14 +10,16 @@ export class NotificationMessagesPage implements INotificationMessagesOps {
     readonly content2: Locator;
     readonly pagetext: Locator;
     readonly pagelink: Locator;
+    readonly actualmessage:Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.heading = page.getByRole('heading', { name: 'Notification Message' });
-        this.content1 = page.getByLabel()
+        this.content1 = page.locator('#content > div > p'); Promise<string>
         //Some rudimentary examples include 'Action successful', 'Action unsuccessful, please try again', etc.
         this.pagetext = page.getByRole('link', { name: 'Click here' });
         this.pagelink = page.getByRole('link', { name: 'Click here' });
+        //this.actualmessage = page.locator(String,{ has : 'Action Successful'})
     }
 
     async gotoNotificationMessagesPage(): Promise<void> {
@@ -30,7 +32,7 @@ export class NotificationMessagesPage implements INotificationMessagesOps {
         assert.equal(actualHeading, expectedHeading);
     }
 
-    async checkTextContent(expectedTextContent: string): Promise<void> {
+    async checkTextContent(expectedTextContent: string) {
         const actualContent = await this.content1.innerText();
         console.log(actualContent);
         assert.equal(actualContent, expectedTextContent);
@@ -40,13 +42,24 @@ export class NotificationMessagesPage implements INotificationMessagesOps {
         const actualText = await this.pagetext.innerText();
         console.log(actualText);
         assert.equal(actualText, expectedText);
-        //const actualLink = await this.pagelink.innerText();
+        const actualLink = await expect(this.page).toHaveURL('https://www.programsbuzz.com/blog');
         //console.log(actualLink);
         //assert.equal(actualLink, expectedLink);
     }
     
-    loadNewMessage(): Promise<void> {
-        throw new Error("Method not implemented.");
+    async loadNewMessage(): Promise<void> {
+        await this.page.getByRole('link', { name: 'Click here' }).click();
+        const successmessage = 'Action successful'
+        const actualmessage = await this.actualmessage.innerText();
+        if (actualmessage == successmessage) {
+            console.log(actualmessage);
+            console.log('Message loaded successfully');
+        } else {
+            console.log(actualmessage);
+            console.log('Message loaded successfully');
+        }
+        
+        
     }
     checkExclaimationIconInNotificationMessage(): void {
         throw new Error("Method not implemented.");
