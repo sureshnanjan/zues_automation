@@ -1,3 +1,4 @@
 export interface IHomePage{
     visit();
+
 }
