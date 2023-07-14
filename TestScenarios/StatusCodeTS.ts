@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../PlaywrightImplementation/HomePage';
-import { StatusCode } from '../PlaywrightImplementation/StatusCodeI';
+import { StatusCode } from '../PlaywrightImplementation/StatusCodeIPage';
 
 /**To verify the Status Code link is clickable */
 test('Click on the link text', async ({ page }) => {

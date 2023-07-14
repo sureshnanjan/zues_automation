@@ -1,5 +1,5 @@
 import { Locator, Page, expect } from "@playwright/test";
-import { IHomePage } from "../Operations/IHomePage";
+import { IHomePage } from "../Operations/IHomeOps";
 
 export class HomePage implements IHomePage{
     page: any;

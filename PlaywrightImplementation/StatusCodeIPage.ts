@@ -1,4 +1,4 @@
-import { IStatusCode } from "../Operations/StatusCode";
+import { IStatusCode } from "../Operations/StatusCodeOps";
 import { Locator, Page } from '@playwright/test';
 import assert from "assert";
 export class StatusCode implements IStatusCode{

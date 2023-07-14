@@ -1,4 +1,4 @@
-import { MultipleWindow } from "../Operations/MultipleWindow";
+import { MultipleWindow } from "../Operations/MultipleWindowOps";
 
 export class MultipleWindowPage implements MultipleWindow{
     pageTitle: String;
