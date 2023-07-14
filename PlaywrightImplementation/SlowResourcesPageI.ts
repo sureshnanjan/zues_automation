@@ -1,5 +1,5 @@
 import { expect,Locator, Page } from '@playwright/test';
-import { Slowresource } from "../Operations/SlowResources"; 
+import { Slowresource } from "../Operations/SlowResourcesOps"; 
 import assert from 'assert';
     /**Create clas to export*/
     export class response implements Slowresource {  

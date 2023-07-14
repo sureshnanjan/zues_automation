@@ -1,4 +1,4 @@
-import { onLoadError } from "../Operations/JavaScript onload event error";
+import { onLoadError } from "../Operations/JavaScriptOnloadEventErrorOps";
 
 export class errorTextMessage implements onLoadError{
     errorTextMessage: String;

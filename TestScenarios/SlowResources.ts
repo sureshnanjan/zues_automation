@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 import { HomePage } from '../PlaywrightImplementation/HomePage';
-import { response } from '../PlaywrightImplementation/SlowResourcesI';
+import { response } from '../PlaywrightImplementation/SlowResourcesPageI';
 
 /**To verify the Slow Response link is clickable */
 test('Click on the link text', async ({ page }) => {
