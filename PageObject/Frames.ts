@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { ICheckboxes } from './IiFrames';
+import { IFrames } from '../PlaywrightImplementation/IFrames';
 
 // This is my HomePage behavior
 
@@ -36,7 +36,7 @@ async checkLinkcount(nooflinks: number){
     await expect(result).toHaveCOunt(nooflinks);
 }
 
-async gotoExample(this.exampleName: Locator){
-    await this.page.getByRole('link', {name: (`${this.exampleName}`).click})
+async gotoExample(): Promise<void> {
+    await this.page.getByRole('link').click();
 }
 }

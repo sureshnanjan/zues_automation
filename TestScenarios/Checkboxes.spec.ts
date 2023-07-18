@@ -1,10 +1,8 @@
 import { Page, BrowserContext, test, expect } from '@playwright/test';
-import { Checkboxes } from '../Project-3/Checkboxes'
+import { Checkboxes } from "../PageObject/Checkboxes.1";
 
 // let page: Page
-
 // let context: BrowserContext
-
 // Test case 01: To verify if the heading displayed is correct
 
 test('Verify the heading of the page', async ({ page }) => {
