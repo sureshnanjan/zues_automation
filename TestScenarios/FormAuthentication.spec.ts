@@ -16,7 +16,8 @@ test('Heroku App Login Page Heading is correct',async ({ page }) => {
 test('Verify that help text is present on login page',async ({ page }) => {
   // Arrange 
   const expectedHeading = 'Login Page'; 
-  await page.gotoFormAuthenticationPage('https://the-internet.herokuapp.com/login');
+  const formauth= new FormAuth();
+  await formauth.gotoFormAuthenticationPage('https://the-internet.herokuapp.com/login');
 // #content > h1
 // Act 
 const result = await page.getByRole('heading',{ name: 'Login Page' }).innerText(); 
@@ -48,7 +49,7 @@ test('Verify that user is logged in correctly on entering correct credentials',a
   formauth.enterUsername("tomsmith");
   formauth.enterPassword("SuperSecretPassword!");
   formauth.clickLoginButton;
-  expect.checkPageHeading('Secure Area')
+  formauth.checkPageHeading('Secure Area')
 })
 
 test('Verify text after successful login', async({page})=>{
@@ -65,7 +66,7 @@ test('Verify that user is not able to log in on entering incorrect username',asy
   formauth.enterUsername("abc");
   formauth.enterPassword("SuperSecretPassword!");
   formauth.clickLoginButton;
-  expect.checkFlashErrorMessage('Your username is invalid!')
+  formauth.checkFlashErrorMessage('Your username is invalid!')
 })
 
 test('Verify that user is not able to log in on entering incorrect password',async ({ page }) => {
@@ -74,7 +75,7 @@ test('Verify that user is not able to log in on entering incorrect password',asy
   formauth.enterUsername("tomsmith");
   formauth.enterPassword("abc");
   formauth.clickLoginButton;
-  expect.checkFlashErrorMessage('Your password is invalid!')
+  formauth.checkFlashErrorMessage('Your password is invalid!')
 })
 
 test('To verify flash message for login with incorrect or empty input',async ({ page }) => {
@@ -83,7 +84,7 @@ test('To verify flash message for login with incorrect or empty input',async ({ 
   formauth.enterUsername("");
   formauth.enterPassword("");
   formauth.clickLoginButton;
-  expect.checkFlashErrorMessage('Your username is invalid!')
+  formauth.checkFlashErrorMessage('Your username is invalid!')
 })
 
 test('To verify flash message after logout',async ({ page }) => {
@@ -94,5 +95,5 @@ test('To verify flash message after logout',async ({ page }) => {
   formauth.clickLoginButton;
   formauth.checkstring('Welcome to the Secure Area. When you are done click logout below.');
   formauth.clickLogoutButton;
-  expect.checkFlashSuccessMessage('You logged out of the secure area!')
+  formauth.checkFlashSuccessMessage('You logged out of the secure area!')
 })
