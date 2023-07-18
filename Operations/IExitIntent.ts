@@ -22,19 +22,19 @@ export interface IExitIntent {
    * Verifies the heading of the page.
    * @returns True if the heading matches, false otherwise.
    */
-  verifyHeader(): boolean;
+  verifyHeader(); //removed : Promise<boolean>
 
   /**
    * Verifies the content of the page.
    * @returns True if the content matches, false otherwise.
    */
-  verifyContentText(): boolean;
+  verifyContentText(); //removed Promise<boolean>
 
   /**
    * Checks if the exit intent overlay is displayed.
    * @returns A promise that resolves with true if the overlay is displayed, false otherwise.
    */
-  checkExitIntentOverlay(): Promise<boolean>;
+  checkExitIntentOverlay();
 
   /**
    * Triggers the exit intent behavior on the page.
