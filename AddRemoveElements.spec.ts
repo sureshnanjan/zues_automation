@@ -1,18 +1,17 @@
-import { test, expect } from '@playwright/test';
+import { Page, BrowserContext, test, expect } from '@playwright/test';
 import { AddRemoveElements } from './AddRemoveElements';
 
 
-test('Clicking Add Element button', async ({ page }) => {
-
-    const Object = new AddRemoveElements(page);
-    await Object.goto();
-    await Object.LocateElements();
-
+test('Verify when clicking Add Element button, Delete button appears', async ({ page }) => {
+    // Step 1: Launch the link
+    // const HomePage = new iHomePage
+    // const Add/RemoveElements = new iAddRemove/Elementspage
+    // Homepage.gotoexample{'Add/Remove Elements'}
 });
 
-test('Clicking Delete button', async ({ page }) => {
-
-    const Object = new AddRemoveElements(page);
-    await Object.goto();
-    await Object.ClickandCheck();
+test('Verify when clicking Delete button, the Delete button disappears', async ({ page }) => {
+    // Step 1: Launch the link
+    // const HomePage = new iHomePage
+    // const AddRemoveElements = new iAddRemoveElementspage
+    // Homepage.gotoexample{'Add/Remove Elements'}
 });
