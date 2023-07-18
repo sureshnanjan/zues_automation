@@ -1,1 +1,3 @@
-interface IHomePage{}
+interface IHomePage{
+    visit():Promise<void>;
+}

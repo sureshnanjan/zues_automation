@@ -8,7 +8,7 @@ export interface IFormAuthentication{
     /**
      * To navigate to form authetication page
      */
-    gotoFormAuthenticationPage(): Promise<void>;
+    gotoFormAuthenticationPage(expectedLink: String): Promise<void>;
  
     /**
      * Verify page heading

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../playwright/tests';
 import { HomePage } from '../PlaywrightImplementation/HomePage';
 test('Heroku App Test', async ({ page }) => {
     // Arrange
