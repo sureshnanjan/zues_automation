@@ -26,8 +26,10 @@ test('Initiate overlay',async ({page}) => {
     navigate.triggerExitIntent();
 })
 
-test('Modal should not be displayed when navigating inside the viewport',async ({page}) => {
+test('Verify if modal is displayed',async ({page}) => {
     const navigate = new ExitIntent(page);
+    // const modal = await page.waitForSelector('.modal');
+    // return modal !== null;
 })
 
 /**
