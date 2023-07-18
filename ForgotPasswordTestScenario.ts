@@ -1,43 +1,35 @@
-**
- * Operation for Forget Password Page
- */
-export interface IForgetPassword{
+import { Page, BrowserContext, test, expect } from '@playwright/test';
 
-    /**
-     * Check if the heading of page is correct
-     * @param expectedHeading Expected Heading of the page
-     */
-    verifyHeading(expectedHeading : string) : void;
-    test('Forget Password', async ({ page }) => {
-        const ForgetPasswordpage = new ForgetPassword(page);
-        await ForgetPasswordpage.visit();
-        await ForgetPasswordpage.checkHeading('ForgetPassword Variation 1')
-    });
-
-    /**
-     * To Enter Email Id in the input box
-     * @param text Email Id
-     */
-    inputEmail(text : string) : void;
-    test.only('ForgetPassword', async ({ page }) => {
-        const ForgetPasswordpage = new ForgetPassword(page);
-        await ForgetPasswordpage.visit();
-        await ForgetPasswordpage.checkHeading('Forgot Password');
-        await ForgetPasswordpage.checkInputFieldLabel();
-        await ForgetPasswordpage.checkInputField(5);
-        await ForgetPasswordpage.checkRetrievepasswordbutton(5);
-    });
-
-    /**
-     * Clicks on the Retrieve Password
-     */
-    clickOnRetrivePassword() : Promise<void>;
-    
-    /**
-     * To verify the result text on page
-     * @param expectedText Text on the page after clicking retrive password
-     */
-    verifyResultText(expectedText : string) : void;
+import { ForgotPassword } from "../PageObject/ForgotPassword";
 
 
-}
+
+
+// let page: Page
+
+// let context: BrowserContext
+
+// Test case 01: To verify if the heading displayed is correct
+
+test('Verify the heading of the page', async ({ page }) => {
+})
+
+// Test case 02: To verify the input field has a label
+
+test('Verify that the input box has a label E-mail associated with it', async ({ page }) => {
+})
+
+// Test case 03: To check that I can enter an email address in the input field
+
+test('Verify that an email address could be entered in the input field', async ({ page }) => {
+})
+
+// Test case 04: To click on the Retrieve password button
+
+test('Click Retrieve password button and verify that the button can be clicked', async ({ page }) => {
+})
+
+// Test case 05: To check that clicking the Retrieve password redirects me to the next page
+
+test('Click Retrieve password button and verify that next page loads', async ({ page }) => {
+})
