@@ -1,5 +1,8 @@
 import {IFormAuthentication} from '../Operations/IFormAuthentication';
 export class FormAuth implements IFormAuthentication{
+    checkstring(arg0: string) {
+      throw new Error('Method not implemented.');
+    }
     gotoFormAuthenticationPage(expectedLink: String): Promise<void> {
         throw new Error('Method not implemented.');
         //const result = await page.getByRole('heading',{ name: 'Login Page' }).innerText(); 

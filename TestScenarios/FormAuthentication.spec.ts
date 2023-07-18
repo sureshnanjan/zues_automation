@@ -33,28 +33,13 @@ test('Helptext should be present on the page',async ({ page }) => {
 test('Username field should be present on the page',async ({ page }) => {
   const formauth= new FormAuth();
   await formauth.gotoFormAuthenticationPage('https://the-internet.herokuapp.com/login');
-  const formcomponent=new FormAuth
-  formcomponent.checkFormComponents,{name:'Username'}
+  formauth.checkFormComponents,{name:'Username'}
 })
 
 test('Password field should be present on the page',async ({ page }) => {
   const formauth= new FormAuth();
   await formauth.gotoFormAuthenticationPage('https://the-internet.herokuapp.com/login');
-  const formcomponent=new FormAuth
-  formcomponent.checkFormComponents,{name:'Password'}
-})
-
-test('Enter correct username',async ({ page }) => {
-  const formauth= new FormAuth();
-  await formauth.gotoFormAuthenticationPage('https://the-internet.herokuapp.com/login');
-  formauth.enterUsername("tomsmith");
-})
-
-test('Enter correct password',async ({ page }) => {
-  const formauth= new FormAuth();
-  await formauth.gotoFormAuthenticationPage('https://the-internet.herokuapp.com/login');
-  formauth.enterPassword("SuperSecretPassword!");
-
+  formauth.checkFormComponents,{name:'Password'}
 })
 
 test('Verify that user is logged in correctly on entering correct credentials',async ({ page }) => {
@@ -74,13 +59,22 @@ test('Verify text after successful login', async({page})=>{
   formauth.checkstring('Welcome to the Secure Area. When you are done click logout below.');
 })
 
-test('Verify that user is not able to log in on entering incorrect credentials',async ({ page }) => {
+test('Verify that user is not able to log in on entering incorrect username',async ({ page }) => {
   const formauth= new FormAuth();
   await formauth.gotoFormAuthenticationPage('https://the-internet.herokuapp.com/login');
   formauth.enterUsername("abc");
   formauth.enterPassword("SuperSecretPassword!");
   formauth.clickLoginButton;
   expect.checkFlashErrorMessage('Your username is invalid!')
+})
+
+test('Verify that user is not able to log in on entering incorrect password',async ({ page }) => {
+  const formauth= new FormAuth();
+  await formauth.gotoFormAuthenticationPage('https://the-internet.herokuapp.com/login');
+  formauth.enterUsername("tomsmith");
+  formauth.enterPassword("abc");
+  formauth.clickLoginButton;
+  expect.checkFlashErrorMessage('Your password is invalid!')
 })
 
 test('To verify flash message for login with incorrect or empty input',async ({ page }) => {
@@ -98,6 +92,7 @@ test('To verify flash message after logout',async ({ page }) => {
   formauth.enterUsername("tomsmith");
   formauth.enterPassword("SuperSecretPassword!");
   formauth.clickLoginButton;
+  formauth.checkstring('Welcome to the Secure Area. When you are done click logout below.');
   formauth.clickLogoutButton;
   expect.checkFlashSuccessMessage('You logged out of the secure area!')
 })
