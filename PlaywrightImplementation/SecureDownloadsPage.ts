@@ -6,10 +6,14 @@ export class SecureDownloadsPage implements ISecureDownloadOps {
     readonly page: Page;
     readonly heading: Locator;
     readonly downloadLink: Locator;
+    readonly body: Locator;
+    readonly fileLink: Locator;
     constructor(page: Page) {
         this.page = page;
         this.heading = page.locator('h3', { hasText: 'Secure File Downloader' });
-        this.downloadLink = page.getByRole('link', { name: 'testdoc.txt', exact: true });
+        this.downloadLink = page.getByRole('link', { name: 'Hubble_ultra_deep_field.jpg', exact: true });
+        this.body = page.locator('body');
+        this.fileLink = page.locator('[class="example"] a[href]');
     }
 
     async gotoSecureFileDownloadsPage(): Promise<void> {
@@ -21,7 +25,7 @@ export class SecureDownloadsPage implements ISecureDownloadOps {
     }
 
     async checkDownloadLink(expectedLink: string): Promise<void> {
-        await expect(this.downloadLink).toHaveAttribute('href',`download_secure/${expectedLink}`);
+        await expect(this.downloadLink).toHaveAttribute('href', `download_secure/${expectedLink}`);
         await expect(this.downloadLink).toHaveText(expectedLink);
         await expect(this.downloadLink).toBeVisible();
     }
@@ -35,5 +39,13 @@ export class SecureDownloadsPage implements ISecureDownloadOps {
 
     async checkDownloadedFile(path: string): Promise<void> {
         expect(fs.existsSync(path)).toBeTruthy();
+    }
+
+    async checkUnsuccessfulHeading(expectedText: string): Promise<void> {
+        await expect(this.body).toHaveText(expectedText);
+    }
+
+    async checkAvailableFilesAreMoreThan1(): Promise<void> {
+        expect(await this.fileLink.count()).toBeGreaterThan(1);
     }
 }
