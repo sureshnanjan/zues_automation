@@ -1,9 +1,11 @@
 import { test, expect } from '@playwright/test';
 import { JqueryMenuPage } from '../PlaywrightImplementation/JqueryMenuPage';
+import { HomePage } from '../PlaywrightImplementation/HomePage';
 
 test('Visiting JQuery-UI Menu page', async ({ page }) => {
     const jquerypage = new JqueryMenuPage(page);
     await jquerypage.gotoJqueryMenuPage();
+    //add assertion
 });
 
 test('Verfying the heading on JQuery-UI Menu page', async ({ page }) => {
@@ -44,15 +46,14 @@ test('Checking if the enabled menu option is clickable', async ({ page }) => {
     await jquerypage.clickEnabled();
 });
 
-test('Verfying the downloads option in Enabled menu', async ({ page }) => {
+test('Verfying the text of downloads option in Enabled menu', async ({ page }) => {
     const jquerypage = new JqueryMenuPage(page);
     await jquerypage.gotoJqueryMenuPage();
     await jquerypage.clickEnabled();
     await jquerypage.verifyDownloadsText('Downloads');
-    await jquerypage.clickDownloads();
 });
 
-test('Verfying the downloads option in Enabled menu', async ({ page }) => {
+test('Verfying click on downloads option in Enabled menu', async ({ page }) => {
     const jquerypage = new JqueryMenuPage(page);
     await jquerypage.gotoJqueryMenuPage();
     await jquerypage.clickEnabled();
