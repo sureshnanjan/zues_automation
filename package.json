@@ -1,4 +1,29 @@
 {
+  "name": "zues_automation",
+  "version": "1.0.0",
+  "description": "The Training project for Playwright Automation with Typescript",
+  "main": "index.js",
+  "dependencies": {
+    "playwright": "^1.32.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.1.2",
+    "@playwright/test": "^1.35.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sureshnanjan/zues_automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sureshnanjan/zues_automation/issues"
+  },
+  "homepage": "https://github.com/sureshnanjan/zues_automation#readme"
   "name": "playwright-npm",
   "version": "1.0.0",
   "description": "",

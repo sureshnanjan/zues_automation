@@ -1,6 +1,7 @@
 # Document Outputs
 out
 # Logs
+out
 logs
 *.log
 npm-debug.log*
@@ -104,3 +105,6 @@ dist
 
 # TernJS port file
 .tern-port
+/test-results/
+/playwright-report/
+/playwright/.cache/
