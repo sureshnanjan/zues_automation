@@ -1,21 +1,34 @@
-export interface IDropdown{
-    /**
-     * This function verifies the heading of the Dropdown page
-     * @param expectedHeading Enter the expected heading
+/**
+ * Operation for Dropdown list Page
+ */
+export interface IDropdownList {
+    /**  
+     * This method is used to check heading on Dropdown list Page
+     * @param headingText - Enter the expected heading text.
      */
-    verifyHeading(expectedHeading: string)
+    checkHeading(headingText: string): void;
     /**
-     * This function verifies the placeholder text in the dropdown
-     * @param expectedText Enter the expected placeholder text
-     */
-    verifyPlaceholderText(expectedText: string)
+    * This method is used to verify visibility of dropdown
+    */
+    verifyVisibilityOfDropdown(): void;
     /**
-     * This function selects the option from the dropdown
-     * @param option Enter the option to be selected
+     * This method is used to check placeholder text of dropdown
+     * @param placeholderText - Enter the expected placeholder text.
      */
-    selectOption(option: string)
+    checkPlaceholderTextOfDropdown(placeholderText: string): void;
     /**
-     * This function verifies the selected option in the dropdown
+    * This method is used to verify no. options from dropdown
+    * @param noOfOptions - Enter number of options to be expected in the dropdown
+    */
+    verifyOptionsCount(noOfOptions: number): void;
+    /**
+     * This method is used to select option from the dropdown
+     * @param option Enter the option to be selected from the dropdown
      */
-    verifySelectedOption()
+    selectOptionFromDropdown(option: string): void;
+    /**
+     * This method is used to verify selected option
+     * @param option  Enter the option to be selected from dropdown
+     */
+    verifySelectedOptionFromDropdown(option: string): void;
 }
