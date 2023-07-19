@@ -55,8 +55,8 @@ test('Verify if element is not hidden after clicking on start button', async ({ 
     await DynamicLoading.clickFirstkHyperLink();
     await DynamicLoading.clickStartButton();
     test.setTimeout(120000);
-    const hellowworld = page.locator('//*[@id="finish"]') 
-    expect(hellowworld.isHidden()).toBe(false);
+    const hellowworld = page.locator('//*[@id="finish"]');
+    expect(hellowworld.isVisible()).toBe(true);
 })
 
 test('Verify if element is rendered after clicking on start button', async ({ page }) => {
@@ -65,5 +65,7 @@ test('Verify if element is rendered after clicking on start button', async ({ pa
     await DynamicLoading.clickFirstkHyperLink();
     await DynamicLoading.clickStartButton();
     test.setTimeout(120000);
-    await page.isVisible("text='Hello World'")
+    const hellowworld = page.locator('//*[@id="finish"]');
+    await page.isVisible("text='Hello World'");
+    expect(hellowworld.isVisible()).toBe(true);
 })
