@@ -1,16 +1,16 @@
 export interface digestAuthentication {
     /*
-    Interface for login page
+    Interface for visit the digest authentication page
     **/
-    loginPage(): Promise<void>;
+    visit(): Promise<void>;
 
     /*
-    Interface for alert
+    Interface for alert box 
     **/
-    alertData(): void;
+    alertDialogue(): void;
 
     /*
-    Interface for once the user has logged in successuly
+    Interface for once the user has logged in successfully
     **/
     successPage(): void;
 }

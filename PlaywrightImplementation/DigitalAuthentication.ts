@@ -10,12 +10,15 @@ export class digestAuthenticationPageWithInterfaceImpl implements digestAuthenti
       this.page = page;
   }
   
-  async loginPage(): Promise<void> {
+  async visit(): Promise<void> {
     // Add login page details
     }
 
-  async alertData():  Promise<void> {
+  async alertDialogue():  Promise<void> {
   // Add alert data
   }
 
+  async successPage():  Promise<void> {
+    // Add alert data
+    }
 }
