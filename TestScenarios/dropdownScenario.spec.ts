@@ -6,33 +6,38 @@ test('Visit dropdown list page', async ({ page }) => {
   await dropdownListPage.gotoDropdownListPage();
 });
 
-test('Check heading of Dropdown List page', async ({ page }) => {
+test('Verify heading of Dropdown List page', async ({ page }) => {
   const dropdownListPage = new DropdownListPage(page);
   await dropdownListPage.gotoDropdownListPage();
   await dropdownListPage.checkHeading('Dropdown List')
 });
 
-test('Check Visibility of Dropdown', async ({ page }) => {
+test('Verify visibility of Dropdown', async ({ page }) => {
   const dropdownListPage = new DropdownListPage(page);
   await dropdownListPage.gotoDropdownListPage();
   await dropdownListPage.verifyVisibilityOfDropdown();
 });
 
-test('Check placeholder text of Dropdown', async ({ page }) => {
+test('Verify placeholder text of Dropdown', async ({ page }) => {
   const dropdownListPage = new DropdownListPage(page);
   await dropdownListPage.gotoDropdownListPage();
   await dropdownListPage.checkPlaceholderTextOfDropdown('Please select an option');
 });
 
-test('Check options count in Dropdown', async ({ page }) => {
+test('Verify options count in Dropdown', async ({ page }) => {
   const dropdownListPage = new DropdownListPage(page);
   await dropdownListPage.gotoDropdownListPage();
   await dropdownListPage.verifyOptionsCount(3);
 });
 
-test('Select option from Dropdown', async ({ page }) => {
+test('Verify option from Dropdown', async ({ page }) => {
   const dropdownListPage = new DropdownListPage(page);
   await dropdownListPage.gotoDropdownListPage();
-  await dropdownListPage.selectOptionFromDropdown('Option 1');
-  await dropdownListPage.selectOptionFromDropdown('Option 2');
+  await dropdownListPage.verifySelectedOptionFromDropdown('Option 1');
+  await dropdownListPage.verifySelectedOptionFromDropdown('Option 2');
+});
+
+
+test('Verify that dropdown is closed if user clicks outside dropdown', async ({ page }) => {
+  
 });

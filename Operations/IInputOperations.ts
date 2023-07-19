@@ -20,15 +20,9 @@ export interface IInputOperations {
    */
   checkInputFieldLabel(numberInputFieldLabel: string): void;
 
-   /**
-   * To Enter number in the number input field 
-   * @param Number  This parameter is used to enter number in Number input field
-   */
-   enterNumberInNumberInputField(Number: number): void;
-
   /**
-   * To Enter number and verify in the number input field 
-   * @param Number  This parameter is used to enter number in Number input field and verify number displayed in input field
+   * This method is used to enter number and verify in the number input field 
+   * @param Number  This parameter is used to enter number in Number input field
    */
   enterNumberAndVerifyInNumberInputField(Number: number): void;
 
