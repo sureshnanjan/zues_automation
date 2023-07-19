@@ -10,7 +10,8 @@ export class NotificationMessagesPage implements INotificationMessagesOps {
     readonly content2: Locator;
     readonly pagetext: Locator;
     readonly pagelink: Locator;
-    readonly actualmessage:Locator;
+    readonly message:Locator;
+    readonly text:Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -19,7 +20,8 @@ export class NotificationMessagesPage implements INotificationMessagesOps {
         //Some rudimentary examples include 'Action successful', 'Action unsuccessful, please try again', etc.
         this.pagetext = page.getByRole('link', { name: 'Click here' });
         this.pagelink = page.getByRole('link', { name: 'Click here' });
-        //this.actualmessage = page.locator(String,{ has : 'Action Successful'})
+        this.message = page.locator('//*[@id="flash-messages"]');
+        this.text = page.locator('//*[@id="flash"]');
     }
 
     async gotoNotificationMessagesPage(): Promise<void> {
@@ -49,28 +51,46 @@ export class NotificationMessagesPage implements INotificationMessagesOps {
     
     async loadNewMessage(): Promise<void> {
         await this.page.getByRole('link', { name: 'Click here' }).click();
-        const successmessage = 'Action successful'
-        const actualmessage = await this.actualmessage.innerText();
-        if (actualmessage == successmessage) {
+        let successmessage = 'Action successful'
+        let actualmessage = await this.message.innerText();
+        console.log(actualmessage);
+        if (actualmessage = successmessage) {
             console.log(actualmessage);
             console.log('Message loaded successfully');
         } else {
             console.log(actualmessage);
             console.log('Message loaded successfully');
         }
-        
-        
+        return;
     }
+
     checkExclaimationIconInNotificationMessage(): void {
         throw new Error("Method not implemented.");
     }
-    checkNotificationMessageText(expectedMessage: string): void {
-        throw new Error("Method not implemented.");
+
+    async checkNotificationMessageText(expectedMessage: string): Promise<void> {
+        await this.page.getByRole('link', { name: 'Click here' }).click();
+        console.log('Expected Message = ' + expectedMessage);
+        let actualmessage = await this.text.innerText();
+        if (actualmessage == expectedMessage) {
+            console.log('Actual Message = '+ actualmessage);
+            console.log('Actual And Expected texts match');
+        } else {
+            console.log('Actual Message = '+ actualmessage);
+            console.log('Actual And Expected texts does not match');
+        }
+        
     }
-    checkCloseIconBesidesNotificationMessage(): void {
-        throw new Error("Method not implemented.");
+
+    async checkCloseIconBesidesNotificationMessage(): Promise<void> {
+        await this.page.getByRole('link', { name: 'Click here' }).click();
+        //let icon = await expect(this.page.message.toHaveText(/x/);
+        //if ()
+        //*[@id="flash"]/a
     }
+
     closeNotificationMessage(): void {
         throw new Error("Method not implemented.");
     }
+
 }
