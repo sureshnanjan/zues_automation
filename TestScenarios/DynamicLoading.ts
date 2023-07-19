@@ -41,14 +41,29 @@ test('Verify if sub heading of example 2 page', async ({ page }) => {
     await DynamicLoading.checkPageSubHeadingOfRendered('Example 2: Element rendered after the fact');
 })
 
+test('Verify if element is hidden', async ({ page }) => {
+    const DynamicLoading = new DynamicLoadingwithInterface(page);
+    await DynamicLoading.gotoDynamicLoading();
+    await DynamicLoading.clickFirstkHyperLink();
+    const hellowworld = page.locator('//*[@id="finish"]') 
+    expect(hellowworld.isHidden()).toBe(true);
+})
 
-// test('Verify if sub heading of example 1 page', async ({ page }) => {
-//     test.setTimeout(120000);
-//     const DynamicLoading = new DynamicLoadingwithInterface(page);
-//     await formauthentication.vistHomePage();
-//     await formauthentication.clickFormAutheticationLink();
-//     await formauthentication.enterUsername("");
-//     await formauthentication.enterPassword("");
-//     await formauthentication.clickLoginButton();
-//     await expect(page.locator('//*[@id="flash"]')).toHaveText('Your password is invalid!');
-// })
+test('Verify if element is not hidden after clicking on start button', async ({ page }) => {
+    const DynamicLoading = new DynamicLoadingwithInterface(page);
+    await DynamicLoading.gotoDynamicLoading();
+    await DynamicLoading.clickFirstkHyperLink();
+    await DynamicLoading.clickStartButton();
+    test.setTimeout(120000);
+    const hellowworld = page.locator('//*[@id="finish"]') 
+    expect(hellowworld.isHidden()).toBe(false);
+})
+
+test('Verify if element is rendered after clicking on start button', async ({ page }) => {
+    const DynamicLoading = new DynamicLoadingwithInterface(page);
+    await DynamicLoading.gotoDynamicLoading();
+    await DynamicLoading.clickFirstkHyperLink();
+    await DynamicLoading.clickStartButton();
+    test.setTimeout(120000);
+    await page.isVisible("text='Hello World'")
+})
