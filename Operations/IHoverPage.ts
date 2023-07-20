@@ -1,41 +1,36 @@
-export interface UploadFileOperations {
+export interface HoverPageOperations {
     /**
-     * @description navigate to the upload file page
+     * @description navigate to the hover page
      */
     goto(): any;
 
     /**
-     * @description verify the File Upload heading
+     * @description verify the Hover page heading
      */
     verifyHeading(): any;
 
     /**
-     * @description verify the File Upload sub-heading
+     * @description verify the Hover page sub-heading
      */
     verifySubheading(): any;
 
     /**
-     * @description hover over the image
-     * @param index index of the image
+     * @description verify the user images
      */
-    hoverOnImage(index: number): any;
+     verifyImages(): any;
 
     /**
-     * @description verify the username, view profile button 
+     * @description hover over the image and verify tooltip
+     * @param index index of the image
      * @param username username of the hovered image
      */
-    verifyHoverStateOfImage(username: string): any;
+    hoverOnImage(index: number, username: string): any;
     
     /**
-     * @description hover away from the image
+     * @description hover away from the image and verify tooltip not exists
      * @param index index of the image
      */
     hoverAwayFromImage(index: number): any;
-
-    /**
-     * @description verify the hovered elements doesn't exist
-     */
-    verifyUnHoverState(): any;
 
     /**
      * @description click on the view profile of the hovered image
