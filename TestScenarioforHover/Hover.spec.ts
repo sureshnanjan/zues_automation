@@ -1,20 +1,36 @@
 import { test, expect } from '@playwright/test';
-import { Hovers } from '../../training/playwrightwork/Hover';
+import { Hovers } from '../../training/playwrightwork/Hover2';
 
 
 test('Position of header, description and images', async ({ page }) => {
 
-const Object = new Hovers(page);     //Create an instance of the page object  
-await Object.goto();                 // Call function that can go to URL of Hover page        
-await Object.LocateElements();       //Call function that can check if page contains header, subheader and 3 images 
+const Object = new Hovers(page);     
+await Object.goto();    
+await Object.verifyHeading();
+await Object.verifySubheading();
+await Object.verifyImages();                  
 
 });
   
 test('Hover each image and check the data', async ({ page }) => {
   
-    const Object = new Hovers(page);   //Create an instance of the page object  
-    await Object.goto();               // Call function that can go to URL of Hover page      
-    await Object.HoverandCheck();      //Call function that can hover over each image and find its name and profile
-});
+    const Object = new Hovers(page);     
+    await Object.goto();                      
+    await Object.hoverOnImage(0, 'user1');
+    await Object.hoverOnImage(1, 'user2');
+    await Object.hoverOnImage(2, 'user3');
+    await Object.viewProfile('user1');
+    await Object.viewProfile('user2');
+    await Object.viewProfile('user3');
+    
+});    
+
+test('Hover away from image and check', async ({ page }) => {
   
+    const Object = new Hovers(page);     
+    await Object.goto();                      
+    await Object.hoverAwayFromImage(0);  
+    await Object.hoverAwayFromImage(1);  
+    await Object.hoverAwayFromImage(2);  
+});
    
