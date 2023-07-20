@@ -1,8 +1,39 @@
-export interface Ihover{
+export interface HoverPageOperations {
+    /**
+     * @description navigate to the hover page
+     */
+    goto(): any;
 
-    goto(): void,                       //Function to go URL of Hover page
-    LocateElements(): void,            //Function to locate heading, subheading and 3 images
-    HoverandCheck(): void              //function to hover each image and find its name and profile
+    /**
+     * @description verify the Hover page heading
+     */
+    verifyHeading(): any;
 
+    /**
+     * @description verify the Hover page sub-heading
+     */
+    verifySubheading(): any;
 
+    /**
+     * @description verify the user images
+     */
+     verifyImages(): any;
+
+    /**
+     * @description hover over the image and verify tooltip
+     * @param index index of the image
+     * @param username username of the hovered image
+     */
+    hoverOnImage(index: number, username: string): any;
+    
+    /**
+     * @description hover away from the image and verify tooltip not exists
+     * @param index index of the image
+     */
+    hoverAwayFromImage(index: number): any;
+
+    /**
+     * @description click on the view profile of the hovered image
+     */
+    viewProfile(username: string): any;
 }
