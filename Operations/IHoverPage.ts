@@ -33,11 +33,6 @@ export interface HoverPageOperations {
     hoverAwayFromImage(index: number): any;
 
     /**
-     * @description verify the hovered elements doesn't exist
-     */
-    verifyUnHoverState(): any;
-
-    /**
      * @description click on the view profile of the hovered image
      */
     viewProfile(username: string): any;
