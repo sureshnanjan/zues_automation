@@ -8,7 +8,6 @@ let dnd = null;
 test.beforeEach(async ({ page }) => {
     dnd = new DragAndDrop(page);
     await page.goto(environment.url);
-    await page.click(HomePage.linkLocators.dragAndDrop);
 });
 
 test('Verify page header',async()=>{

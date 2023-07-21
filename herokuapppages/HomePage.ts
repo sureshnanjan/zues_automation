@@ -1,15 +1,11 @@
 import { Page } from "@playwright/test";
 import { environment } from "../utilities/environment"
 
-/**
- * 
- */
-
 export class HomePage{
     page: Page;
     headerText1 = 'Welcome to the-internet';
     headerText2 = 'Available Examples';
-    static linkLocators = {
+    linkLocators = {
         abTesting : `a[href='/abtest']`,
         elementsAddRemove: "a[href='/add_remove_elements/']",
         dragAndDrop: "a[href='/drag_and_drop']"
