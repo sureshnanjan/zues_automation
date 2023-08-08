@@ -88,7 +88,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1257"
+									"value": "1552"
 								}
 							]
 						}
@@ -128,7 +128,19 @@
 					"name": "UpdateBooking",
 					"request": {
 						"auth": {
-							"type": "basic"
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								}
+							]
 						},
 						"method": "PUT",
 						"header": [
@@ -145,21 +157,15 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstname\": \"Mital\",\r\n    \"lastname\": \"Allen\",\r\n    \"totalprice\": 111,\r\n    \"depositpaid\": true,\r\n    \"bookingdates\": {\r\n        \"checkin\": \"2018-01-01\",\r\n        \"checkout\": \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\": \"super\"\r\n}"
+							"raw": "{\r\n    \"firstname\": \"Mital\",\r\n    \"lastname\": \"Dod\",\r\n    \"totalprice\": 111,\r\n    \"depositpaid\": true,\r\n    \"bookingdates\": {\r\n        \"checkin\": \"2018-01-01\",\r\n        \"checkout\": \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\": \"super\"\r\n}"
 						},
 						"url": {
-							"raw": "{{URL}}booking/:id",
+							"raw": "{{URL}}booking/1552",
 							"host": [
 								"{{URL}}booking"
 							],
 							"path": [
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1072"
-								}
+								"1552"
 							]
 						}
 					},
@@ -174,6 +180,21 @@
 						}
 					},
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [
 							{
@@ -192,18 +213,12 @@
 							"raw": "{\r\n    \"firstname\" : \"James\",\r\n    \"lastname\" : \"Brown\"\r\n}"
 						},
 						"url": {
-							"raw": "{{URL}}booking/:id",
+							"raw": "{{URL}}booking/1552",
 							"host": [
 								"{{URL}}booking"
 							],
 							"path": [
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "100"
-								}
+								"1552"
 							]
 						}
 					},
@@ -212,6 +227,21 @@
 				{
 					"name": "DeleteBooking",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -225,12 +255,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{URL}}booking/583",
+							"raw": "{{URL}}booking/1552",
 							"host": [
 								"{{URL}}booking"
 							],
 							"path": [
-								"583"
+								"1552"
 							]
 						}
 					},
