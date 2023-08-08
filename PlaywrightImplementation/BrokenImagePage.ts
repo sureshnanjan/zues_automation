@@ -1,5 +1,5 @@
 import { IBrokenImageOps } from "../Operations/IBrokenImageOps";
-import { expect, Locator, Page } from '@playwright/test';
+import {page, expect, Locator} from  "@playwright/test";
 
 export class BrokenImagePage implements IBrokenImageOps{
     page : Page 
