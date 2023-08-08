@@ -32,9 +32,10 @@ export interface IExitIntent {
 
   /**
    * Checks if the exit intent overlay is displayed.
+   * @param expectedValue - The expected value to compare against the actual overlay display status.
    * @returns A promise that resolves with true if the overlay is displayed, false otherwise.
    */
-  checkExitIntentOverlay(): Promise<boolean>;
+  checkExitIntentOverlay(expectedValue: boolean): Promise<boolean>;
 
   /**
    * Triggers the exit intent behavior on the page.
