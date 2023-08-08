@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "281bc22f-882a-4db6-8158-b64da4fb3ed6",
+		"name": "Resful-Booker Project 4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29018442"
+	},
+	"item": [
+		{
+			"name": "Create Token",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get data",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
