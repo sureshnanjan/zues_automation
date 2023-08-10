@@ -2,271 +2,1037 @@
 	"info": {
 		"_postman_id": "8291243e-c164-4b89-b6de-ec1be82869f5",
 		"name": "QA Training",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "2780627"
 	},
 	"item": [
 		{
-			"name": "Create Token",
-			"event": [
+			"name": "Auth",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code name has string\", function () {\r",
-							"    pm.response.to.have.status(\"OK\");\r",
-							"});\r",
-							"pm.test(\"Body is correct\", function () {\r",
-							"    pm.response.to.have.body({\"reason\": \"Bad credentials\"});\r",
-							"});"
+					"name": "Create Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"token\");\r",
+									"});\r",
+									"\r",
+									"var jsondata = pm.response.json();\r",
+									"pm.globals.set(\"token\",jsondata.token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Transfer-Encoding",
+								"value": "application/json",
+								"type": "text"
+							}
 						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Transfer-Encoding",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"password123\"\r\n}"
-				},
-				"url": "https://restful-booker.herokuapp.com/auth"
-			},
-			"response": []
-		},
-		{
-			"name": "GetBookingId",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "https://restful-booker.herokuapp.com/booking",
-					"protocol": "https",
-					"host": [
-						"restful-booker",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"booking"
-					],
-					"query": [
-						{
-							"key": "firstname",
-							"value": "",
-							"description": "Return bookings with a specific firstname",
-							"disabled": true
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
-						{
-							"key": "lastname",
-							"value": "",
-							"description": "Return bookings with a specific lastname",
-							"disabled": true
-						},
-						{
-							"key": "checkin",
-							"value": null,
-							"description": "Return bookings that have a checkin date greater than or equal to the set checkin date. Format must be CCYY-MM-DD",
-							"disabled": true
-						},
-						{
-							"key": "checkout",
-							"value": null,
-							"description": "Return bookings that have a checkout date greater than or equal to the set checkout date. Format must be CCYY-MM-DD",
-							"disabled": true
+						"url": {
+							"raw": "{{url}}/auth",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetBooking",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://restful-booker.herokuapp.com/booking/:id",
-					"protocol": "https",
-					"host": [
-						"restful-booker",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"booking",
-						":id"
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": "100"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "CreateBooking",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"firstname\" : \"Shivaji\",\r\n    \"lastname\" : \"Darade\",\r\n    \"totalprice\" : 12000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : \r\n    {\r\n        \"checkin\" : \"2023-27-08\",\r\n        \"checkout\" : \"2023-28-08\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "https://restful-booker.herokuapp.com/booking"
-			},
-			"response": []
-		},
-		{
-			"name": "UpdateBooking",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Cookie",
-						"value": "token=abc123",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"firstname\" : \"Shivaji\",\r\n    \"lastname\" : \"Darade\",\r\n    \"totalprice\" : 12000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : \r\n    {\r\n        \"checkin\" : \"2023-27-08\",\r\n        \"checkout\" : \"2023-28-08\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast with Butter Bread\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://restful-booker.herokuapp.com/booking/:id",
-					"protocol": "https",
-					"host": [
-						"restful-booker",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"booking",
-						":id"
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": "1855"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PartialUpdateBooking",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"firstname\" : \"James\",\r\n    \"lastname\" : \"Brown\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://restful-booker.herokuapp.com/booking/:id",
-					"protocol": "https",
-					"host": [
-						"restful-booker",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"booking",
-						":id"
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": null
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DeleteBooking",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "YWRtaW46cGFzc3dvcmQxMjM=",
-						"type": "text"
 					},
-					{
-						"key": "Cookie",
-						"value": "",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "https://restful-booker.herokuapp.com/booking/1?id=1855",
-					"protocol": "https",
-					"host": [
-						"restful-booker",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"booking",
-						"1"
-					],
-					"query": [
+					"response": [
 						{
-							"key": "id",
-							"value": "1855"
+							"name": "Create Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Transfer-Encoding",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"password123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/auth",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1b-2ti5Hkqj/WFBJEE9GnZvp52FXx4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Aug 2023 15:10:52 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"c67341f20e48db9\"\n}"
 						}
 					]
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "GetBookingId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/booking",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "firstname",
+									"value": "John",
+									"description": "Return bookings with a specific firstname",
+									"disabled": true
+								},
+								{
+									"key": "lastname",
+									"value": "",
+									"description": "Return bookings with a specific lastname",
+									"disabled": true
+								},
+								{
+									"key": "checkin",
+									"value": "",
+									"description": "Return bookings that have a checkin date greater than or equal to the set checkin date. Format must be CCYY-MM-DD",
+									"disabled": true
+								},
+								{
+									"key": "checkout",
+									"value": "",
+									"description": "Return bookings that have a checkout date greater than or equal to the set checkout date. Format must be CCYY-MM-DD",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetBookingId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/booking",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"booking"
+									],
+									"query": [
+										{
+											"key": "firstname",
+											"value": "John",
+											"description": "Return bookings with a specific firstname",
+											"disabled": true
+										},
+										{
+											"key": "lastname",
+											"value": "",
+											"description": "Return bookings with a specific lastname",
+											"disabled": true
+										},
+										{
+											"key": "checkin",
+											"value": "",
+											"description": "Return bookings that have a checkin date greater than or equal to the set checkin date. Format must be CCYY-MM-DD",
+											"disabled": true
+										},
+										{
+											"key": "checkout",
+											"value": "",
+											"description": "Return bookings that have a checkout date greater than or equal to the set checkout date. Format must be CCYY-MM-DD",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "6064"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"17b0-U78gtNhsqwBDSSMahefPUq6I1FE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Aug 2023 15:12:03 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"bookingid\": 313\n    },\n    {\n        \"bookingid\": 319\n    },\n    {\n        \"bookingid\": 79\n    },\n    {\n        \"bookingid\": 25\n    },\n    {\n        \"bookingid\": 138\n    },\n    {\n        \"bookingid\": 128\n    },\n    {\n        \"bookingid\": 349\n    },\n    {\n        \"bookingid\": 152\n    },\n    {\n        \"bookingid\": 223\n    },\n    {\n        \"bookingid\": 112\n    },\n    {\n        \"bookingid\": 356\n    },\n    {\n        \"bookingid\": 30\n    },\n    {\n        \"bookingid\": 439\n    },\n    {\n        \"bookingid\": 61\n    },\n    {\n        \"bookingid\": 465\n    },\n    {\n        \"bookingid\": 371\n    },\n    {\n        \"bookingid\": 318\n    },\n    {\n        \"bookingid\": 208\n    },\n    {\n        \"bookingid\": 365\n    },\n    {\n        \"bookingid\": 205\n    },\n    {\n        \"bookingid\": 98\n    },\n    {\n        \"bookingid\": 381\n    },\n    {\n        \"bookingid\": 5\n    },\n    {\n        \"bookingid\": 47\n    },\n    {\n        \"bookingid\": 206\n    },\n    {\n        \"bookingid\": 251\n    },\n    {\n        \"bookingid\": 370\n    },\n    {\n        \"bookingid\": 2\n    },\n    {\n        \"bookingid\": 418\n    },\n    {\n        \"bookingid\": 409\n    },\n    {\n        \"bookingid\": 343\n    },\n    {\n        \"bookingid\": 247\n    },\n    {\n        \"bookingid\": 180\n    },\n    {\n        \"bookingid\": 130\n    },\n    {\n        \"bookingid\": 325\n    },\n    {\n        \"bookingid\": 229\n    },\n    {\n        \"bookingid\": 385\n    },\n    {\n        \"bookingid\": 10\n    },\n    {\n        \"bookingid\": 102\n    },\n    {\n        \"bookingid\": 175\n    },\n    {\n        \"bookingid\": 353\n    },\n    {\n        \"bookingid\": 415\n    },\n    {\n        \"bookingid\": 276\n    },\n    {\n        \"bookingid\": 100\n    },\n    {\n        \"bookingid\": 285\n    },\n    {\n        \"bookingid\": 60\n    },\n    {\n        \"bookingid\": 171\n    },\n    {\n        \"bookingid\": 228\n    },\n    {\n        \"bookingid\": 355\n    },\n    {\n        \"bookingid\": 44\n    },\n    {\n        \"bookingid\": 65\n    },\n    {\n        \"bookingid\": 68\n    },\n    {\n        \"bookingid\": 323\n    },\n    {\n        \"bookingid\": 427\n    },\n    {\n        \"bookingid\": 105\n    },\n    {\n        \"bookingid\": 70\n    },\n    {\n        \"bookingid\": 217\n    },\n    {\n        \"bookingid\": 14\n    },\n    {\n        \"bookingid\": 52\n    },\n    {\n        \"bookingid\": 179\n    },\n    {\n        \"bookingid\": 131\n    },\n    {\n        \"bookingid\": 18\n    },\n    {\n        \"bookingid\": 150\n    },\n    {\n        \"bookingid\": 287\n    },\n    {\n        \"bookingid\": 238\n    },\n    {\n        \"bookingid\": 235\n    },\n    {\n        \"bookingid\": 366\n    },\n    {\n        \"bookingid\": 441\n    },\n    {\n        \"bookingid\": 1\n    },\n    {\n        \"bookingid\": 40\n    },\n    {\n        \"bookingid\": 148\n    },\n    {\n        \"bookingid\": 119\n    },\n    {\n        \"bookingid\": 56\n    },\n    {\n        \"bookingid\": 249\n    },\n    {\n        \"bookingid\": 310\n    },\n    {\n        \"bookingid\": 293\n    },\n    {\n        \"bookingid\": 394\n    },\n    {\n        \"bookingid\": 309\n    },\n    {\n        \"bookingid\": 367\n    },\n    {\n        \"bookingid\": 340\n    },\n    {\n        \"bookingid\": 255\n    },\n    {\n        \"bookingid\": 97\n    },\n    {\n        \"bookingid\": 271\n    },\n    {\n        \"bookingid\": 158\n    },\n    {\n        \"bookingid\": 85\n    },\n    {\n        \"bookingid\": 457\n    },\n    {\n        \"bookingid\": 187\n    },\n    {\n        \"bookingid\": 37\n    },\n    {\n        \"bookingid\": 257\n    },\n    {\n        \"bookingid\": 262\n    },\n    {\n        \"bookingid\": 113\n    },\n    {\n        \"bookingid\": 74\n    },\n    {\n        \"bookingid\": 24\n    },\n    {\n        \"bookingid\": 35\n    },\n    {\n        \"bookingid\": 447\n    },\n    {\n        \"bookingid\": 6\n    },\n    {\n        \"bookingid\": 134\n    },\n    {\n        \"bookingid\": 83\n    },\n    {\n        \"bookingid\": 145\n    },\n    {\n        \"bookingid\": 431\n    },\n    {\n        \"bookingid\": 194\n    },\n    {\n        \"bookingid\": 214\n    },\n    {\n        \"bookingid\": 23\n    },\n    {\n        \"bookingid\": 103\n    },\n    {\n        \"bookingid\": 101\n    },\n    {\n        \"bookingid\": 376\n    },\n    {\n        \"bookingid\": 412\n    },\n    {\n        \"bookingid\": 78\n    },\n    {\n        \"bookingid\": 59\n    },\n    {\n        \"bookingid\": 317\n    },\n    {\n        \"bookingid\": 362\n    },\n    {\n        \"bookingid\": 108\n    },\n    {\n        \"bookingid\": 304\n    },\n    {\n        \"bookingid\": 290\n    },\n    {\n        \"bookingid\": 307\n    },\n    {\n        \"bookingid\": 202\n    },\n    {\n        \"bookingid\": 241\n    },\n    {\n        \"bookingid\": 263\n    },\n    {\n        \"bookingid\": 123\n    },\n    {\n        \"bookingid\": 176\n    },\n    {\n        \"bookingid\": 69\n    },\n    {\n        \"bookingid\": 135\n    },\n    {\n        \"bookingid\": 75\n    },\n    {\n        \"bookingid\": 289\n    },\n    {\n        \"bookingid\": 461\n    },\n    {\n        \"bookingid\": 181\n    },\n    {\n        \"bookingid\": 234\n    },\n    {\n        \"bookingid\": 137\n    },\n    {\n        \"bookingid\": 67\n    },\n    {\n        \"bookingid\": 411\n    },\n    {\n        \"bookingid\": 236\n    },\n    {\n        \"bookingid\": 111\n    },\n    {\n        \"bookingid\": 460\n    },\n    {\n        \"bookingid\": 149\n    },\n    {\n        \"bookingid\": 21\n    },\n    {\n        \"bookingid\": 336\n    },\n    {\n        \"bookingid\": 308\n    },\n    {\n        \"bookingid\": 124\n    },\n    {\n        \"bookingid\": 266\n    },\n    {\n        \"bookingid\": 94\n    },\n    {\n        \"bookingid\": 196\n    },\n    {\n        \"bookingid\": 403\n    },\n    {\n        \"bookingid\": 440\n    },\n    {\n        \"bookingid\": 133\n    },\n    {\n        \"bookingid\": 87\n    },\n    {\n        \"bookingid\": 140\n    },\n    {\n        \"bookingid\": 117\n    },\n    {\n        \"bookingid\": 316\n    },\n    {\n        \"bookingid\": 464\n    },\n    {\n        \"bookingid\": 243\n    },\n    {\n        \"bookingid\": 153\n    },\n    {\n        \"bookingid\": 169\n    },\n    {\n        \"bookingid\": 389\n    },\n    {\n        \"bookingid\": 328\n    },\n    {\n        \"bookingid\": 76\n    },\n    {\n        \"bookingid\": 4\n    },\n    {\n        \"bookingid\": 280\n    },\n    {\n        \"bookingid\": 13\n    },\n    {\n        \"bookingid\": 273\n    },\n    {\n        \"bookingid\": 166\n    },\n    {\n        \"bookingid\": 200\n    },\n    {\n        \"bookingid\": 221\n    },\n    {\n        \"bookingid\": 11\n    },\n    {\n        \"bookingid\": 48\n    },\n    {\n        \"bookingid\": 302\n    },\n    {\n        \"bookingid\": 455\n    },\n    {\n        \"bookingid\": 186\n    },\n    {\n        \"bookingid\": 106\n    },\n    {\n        \"bookingid\": 272\n    },\n    {\n        \"bookingid\": 334\n    },\n    {\n        \"bookingid\": 388\n    },\n    {\n        \"bookingid\": 261\n    },\n    {\n        \"bookingid\": 324\n    },\n    {\n        \"bookingid\": 43\n    },\n    {\n        \"bookingid\": 373\n    },\n    {\n        \"bookingid\": 432\n    },\n    {\n        \"bookingid\": 77\n    },\n    {\n        \"bookingid\": 118\n    },\n    {\n        \"bookingid\": 305\n    },\n    {\n        \"bookingid\": 95\n    },\n    {\n        \"bookingid\": 232\n    },\n    {\n        \"bookingid\": 437\n    },\n    {\n        \"bookingid\": 377\n    },\n    {\n        \"bookingid\": 248\n    },\n    {\n        \"bookingid\": 445\n    },\n    {\n        \"bookingid\": 195\n    },\n    {\n        \"bookingid\": 144\n    },\n    {\n        \"bookingid\": 7\n    },\n    {\n        \"bookingid\": 121\n    },\n    {\n        \"bookingid\": 417\n    },\n    {\n        \"bookingid\": 425\n    },\n    {\n        \"bookingid\": 129\n    },\n    {\n        \"bookingid\": 115\n    },\n    {\n        \"bookingid\": 446\n    },\n    {\n        \"bookingid\": 49\n    },\n    {\n        \"bookingid\": 12\n    },\n    {\n        \"bookingid\": 423\n    },\n    {\n        \"bookingid\": 125\n    },\n    {\n        \"bookingid\": 410\n    },\n    {\n        \"bookingid\": 297\n    },\n    {\n        \"bookingid\": 242\n    },\n    {\n        \"bookingid\": 109\n    },\n    {\n        \"bookingid\": 8\n    },\n    {\n        \"bookingid\": 416\n    },\n    {\n        \"bookingid\": 330\n    },\n    {\n        \"bookingid\": 33\n    },\n    {\n        \"bookingid\": 53\n    },\n    {\n        \"bookingid\": 331\n    },\n    {\n        \"bookingid\": 19\n    },\n    {\n        \"bookingid\": 15\n    },\n    {\n        \"bookingid\": 291\n    },\n    {\n        \"bookingid\": 469\n    },\n    {\n        \"bookingid\": 449\n    },\n    {\n        \"bookingid\": 9\n    },\n    {\n        \"bookingid\": 386\n    },\n    {\n        \"bookingid\": 442\n    },\n    {\n        \"bookingid\": 157\n    },\n    {\n        \"bookingid\": 268\n    },\n    {\n        \"bookingid\": 335\n    },\n    {\n        \"bookingid\": 3\n    },\n    {\n        \"bookingid\": 398\n    },\n    {\n        \"bookingid\": 456\n    },\n    {\n        \"bookingid\": 284\n    },\n    {\n        \"bookingid\": 165\n    },\n    {\n        \"bookingid\": 354\n    },\n    {\n        \"bookingid\": 170\n    },\n    {\n        \"bookingid\": 28\n    },\n    {\n        \"bookingid\": 184\n    },\n    {\n        \"bookingid\": 450\n    },\n    {\n        \"bookingid\": 274\n    },\n    {\n        \"bookingid\": 198\n    },\n    {\n        \"bookingid\": 163\n    },\n    {\n        \"bookingid\": 395\n    },\n    {\n        \"bookingid\": 374\n    },\n    {\n        \"bookingid\": 66\n    },\n    {\n        \"bookingid\": 406\n    },\n    {\n        \"bookingid\": 253\n    },\n    {\n        \"bookingid\": 275\n    },\n    {\n        \"bookingid\": 39\n    },\n    {\n        \"bookingid\": 452\n    },\n    {\n        \"bookingid\": 46\n    },\n    {\n        \"bookingid\": 430\n    },\n    {\n        \"bookingid\": 27\n    },\n    {\n        \"bookingid\": 88\n    },\n    {\n        \"bookingid\": 436\n    },\n    {\n        \"bookingid\": 139\n    },\n    {\n        \"bookingid\": 424\n    },\n    {\n        \"bookingid\": 254\n    },\n    {\n        \"bookingid\": 296\n    },\n    {\n        \"bookingid\": 189\n    },\n    {\n        \"bookingid\": 422\n    },\n    {\n        \"bookingid\": 357\n    },\n    {\n        \"bookingid\": 259\n    },\n    {\n        \"bookingid\": 342\n    },\n    {\n        \"bookingid\": 122\n    },\n    {\n        \"bookingid\": 222\n    },\n    {\n        \"bookingid\": 329\n    },\n    {\n        \"bookingid\": 405\n    },\n    {\n        \"bookingid\": 301\n    },\n    {\n        \"bookingid\": 211\n    },\n    {\n        \"bookingid\": 399\n    },\n    {\n        \"bookingid\": 143\n    },\n    {\n        \"bookingid\": 191\n    },\n    {\n        \"bookingid\": 20\n    },\n    {\n        \"bookingid\": 341\n    },\n    {\n        \"bookingid\": 311\n    },\n    {\n        \"bookingid\": 38\n    },\n    {\n        \"bookingid\": 359\n    },\n    {\n        \"bookingid\": 391\n    },\n    {\n        \"bookingid\": 267\n    },\n    {\n        \"bookingid\": 142\n    },\n    {\n        \"bookingid\": 380\n    },\n    {\n        \"bookingid\": 352\n    },\n    {\n        \"bookingid\": 90\n    },\n    {\n        \"bookingid\": 34\n    },\n    {\n        \"bookingid\": 295\n    },\n    {\n        \"bookingid\": 204\n    },\n    {\n        \"bookingid\": 463\n    },\n    {\n        \"bookingid\": 203\n    },\n    {\n        \"bookingid\": 114\n    },\n    {\n        \"bookingid\": 282\n    },\n    {\n        \"bookingid\": 226\n    },\n    {\n        \"bookingid\": 178\n    },\n    {\n        \"bookingid\": 322\n    },\n    {\n        \"bookingid\": 84\n    },\n    {\n        \"bookingid\": 350\n    },\n    {\n        \"bookingid\": 16\n    },\n    {\n        \"bookingid\": 283\n    },\n    {\n        \"bookingid\": 396\n    },\n    {\n        \"bookingid\": 233\n    },\n    {\n        \"bookingid\": 71\n    },\n    {\n        \"bookingid\": 215\n    },\n    {\n        \"bookingid\": 298\n    },\n    {\n        \"bookingid\": 96\n    },\n    {\n        \"bookingid\": 126\n    },\n    {\n        \"bookingid\": 347\n    },\n    {\n        \"bookingid\": 363\n    },\n    {\n        \"bookingid\": 54\n    },\n    {\n        \"bookingid\": 29\n    },\n    {\n        \"bookingid\": 220\n    },\n    {\n        \"bookingid\": 164\n    },\n    {\n        \"bookingid\": 448\n    },\n    {\n        \"bookingid\": 378\n    },\n    {\n        \"bookingid\": 453\n    },\n    {\n        \"bookingid\": 337\n    },\n    {\n        \"bookingid\": 216\n    },\n    {\n        \"bookingid\": 93\n    },\n    {\n        \"bookingid\": 26\n    },\n    {\n        \"bookingid\": 63\n    },\n    {\n        \"bookingid\": 227\n    },\n    {\n        \"bookingid\": 390\n    },\n    {\n        \"bookingid\": 433\n    },\n    {\n        \"bookingid\": 212\n    },\n    {\n        \"bookingid\": 32\n    },\n    {\n        \"bookingid\": 421\n    },\n    {\n        \"bookingid\": 260\n    },\n    {\n        \"bookingid\": 344\n    },\n    {\n        \"bookingid\": 466\n    },\n    {\n        \"bookingid\": 172\n    },\n    {\n        \"bookingid\": 151\n    },\n    {\n        \"bookingid\": 17\n    },\n    {\n        \"bookingid\": 193\n    },\n    {\n        \"bookingid\": 104\n    },\n    {\n        \"bookingid\": 245\n    },\n    {\n        \"bookingid\": 86\n    },\n    {\n        \"bookingid\": 58\n    },\n    {\n        \"bookingid\": 62\n    },\n    {\n        \"bookingid\": 160\n    },\n    {\n        \"bookingid\": 383\n    },\n    {\n        \"bookingid\": 397\n    },\n    {\n        \"bookingid\": 404\n    },\n    {\n        \"bookingid\": 36\n    },\n    {\n        \"bookingid\": 281\n    },\n    {\n        \"bookingid\": 364\n    },\n    {\n        \"bookingid\": 50\n    },\n    {\n        \"bookingid\": 159\n    },\n    {\n        \"bookingid\": 199\n    },\n    {\n        \"bookingid\": 185\n    },\n    {\n        \"bookingid\": 92\n    },\n    {\n        \"bookingid\": 82\n    },\n    {\n        \"bookingid\": 55\n    },\n    {\n        \"bookingid\": 470\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GetBooking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/booking/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetBooking",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/booking/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"booking",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "178"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"b2-z+MrJlqQWwS2fI0YIOhvDYnqEIM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Aug 2023 15:12:32 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"firstname\": \"Jane\",\n    \"lastname\": \"Doe\",\n    \"totalprice\": 111,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2018-01-01\",\n        \"checkout\": \"2019-01-01\"\n    },\n    \"additionalneeds\": \"Extra pillows please\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CreateBooking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsondata = pm.response.json();\r",
+									"pm.collectionVariables.set(\"bookingId\", jsondata.bookingid)\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Shivaji\",\r\n    \"lastname\" : \"Darade\",\r\n    \"totalprice\" : 12000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : \r\n    {\r\n        \"checkin\" : \"2023-08-27\",\r\n        \"checkout\" : \"2023-08-28\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/booking",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreateBooking",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\" : \"Shivaji\",\r\n    \"lastname\" : \"Darade\",\r\n    \"totalprice\" : 12000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : \r\n    {\r\n        \"checkin\" : \"2023-08-27\",\r\n        \"checkout\" : \"2023-08-28\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/booking",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "204"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"cc-crQBuShZV8V0xgankc2tKMxhl9s\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Aug 2023 15:14:06 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bookingid\": 1590,\n    \"booking\": {\n        \"firstname\": \"Shivaji\",\n        \"lastname\": \"Darade\",\n        \"totalprice\": 12000,\n        \"depositpaid\": true,\n        \"bookingdates\": {\n            \"checkin\": \"2023-08-27\",\n            \"checkout\": \"2023-08-28\"\n        },\n        \"additionalneeds\": \"Breakfast\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdateBooking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "token={{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Shivaji\",\r\n    \"lastname\" : \"Darade\",\r\n    \"totalprice\" : 12000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : \r\n    {\r\n        \"checkin\" : \"2023-08-27\",\r\n        \"checkout\" : \"2023-08-28\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast with Butter Bread\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/booking/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{bookingId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UpdateBooking",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "token={{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\" : \"Shivaji\",\r\n    \"lastname\" : \"Darade\",\r\n    \"totalprice\" : 12000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : \r\n    {\r\n        \"checkin\" : \"2023-08-27\",\r\n        \"checkout\" : \"2023-08-28\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast with Butter Bread\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/booking/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"booking",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{bookingId}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"c1-F/fzAKupQkNsaJqHatl0/Ui+RKk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Aug 2023 15:15:32 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"firstname\": \"Shivaji\",\n    \"lastname\": \"Darade\",\n    \"totalprice\": 12000,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2023-08-27\",\n        \"checkout\": \"2023-08-28\"\n    },\n    \"additionalneeds\": \"Breakfast with Butter Bread\"\n}"
+						}
+					]
+				},
+				{
+					"name": "PartialUpdateBooking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "token = {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"James\",\r\n    \"lastname\" : \"Brown\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/booking/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{bookingId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PartialUpdateBooking",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "token = {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\" : \"James\",\r\n    \"lastname\" : \"Brown\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/booking/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"booking",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{bookingId}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "190"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"be-bmi9QnyVA6VIYJA3I/6rpBCCNXo\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Aug 2023 15:15:57 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"firstname\": \"James\",\n    \"lastname\": \"Brown\",\n    \"totalprice\": 12000,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2023-08-27\",\n        \"checkout\": \"2023-08-28\"\n    },\n    \"additionalneeds\": \"Breakfast with Butter Bread\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteBooking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "YWRtaW46cGFzc3dvcmQxMjM=",
+								"type": "text"
+							},
+							{
+								"key": "Cookie",
+								"value": "token = {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/booking/1?id={{bookingId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"booking",
+								"1"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{bookingId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DeleteBooking",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "YWRtaW46cGFzc3dvcmQxMjM=",
+										"type": "text"
+									},
+									{
+										"key": "Cookie",
+										"value": "token = {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/booking/1?id={{bookingId}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"booking",
+										"1"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "{{bookingId}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "7"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"7-rM9AyJuqT6iOan/xHh+AW+7K/T8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Aug 2023 15:16:12 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "Created"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ping",
+			"item": [
+				{
+					"name": "HealthCheck",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Created\");\r",
+									"});\r",
+									"pm.test(\"Successful get request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ping",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "HealthCheck",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/ping",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ping"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "7"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"7-rM9AyJuqT6iOan/xHh+AW+7K/T8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Aug 2023 15:16:55 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "Created"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "bookingId",
+			"value": ""
+		},
+		{
+			"key": "url",
+			"value": "https://restful-booker.herokuapp.com",
+			"type": "string"
 		}
 	]
 }
