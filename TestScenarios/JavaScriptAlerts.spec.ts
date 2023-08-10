@@ -15,9 +15,9 @@ test('Validating subheading of JS Alerts Page', async ({ page }) => {
 test('Verifying JSAlert Functionality', async ({ page }) => {
      const javascriptpage = new jspage();
      javascriptpage.invokeJsAlert();
-     javascriptpage.verifyAlertText(Text);
+     javascriptpage.verifyAlertText("");
      javascriptpage.clickOk();
-     javascriptpage.verifyResultText(Text);
+     javascriptpage.verifyResultText("");
     
     })
 
@@ -25,44 +25,44 @@ test('Verifying JSAlert Functionality', async ({ page }) => {
 test('Verifying JSConfirm Functionality with OK Button', async ({ page }) => {
      const javascriptpage = new jspage();
      javascriptpage.invokeJsConfirm();
-     javascriptpage.verifyAlertText(Text);
+     javascriptpage.verifyAlertText("");
      javascriptpage.clickOk();
-     javascriptpage.verifyResultText(Text);
+     javascriptpage.verifyResultText("");
     
     })
 
 test('Verifying JSConfirm Functionality with Cancel Button', async ({ page }) => {
     const javascriptpage = new jspage();
      javascriptpage.invokeJsConfirm();
-     javascriptpage.verifyAlertText(Text);
+     javascriptpage.verifyAlertText("");
      javascriptpage.clickCancel();
-     javascriptpage.verifyResultText(Text);
+     javascriptpage.verifyResultText("");
 
 })
 
 test('Verifying JSPrompt Functionality with data and OK Button', async ({ page }) => {
     const javascriptpage = new jspage();
     javascriptpage.invokeJsPrompt();
-    javascriptpage.verifyAlertText(Text);
-    javascriptpage.inputValue(Text);
+    javascriptpage.verifyAlertText("");
+    javascriptpage.inputValue("");
     javascriptpage.clickOk();
-    javascriptpage.verifyResultText(Text);
+    javascriptpage.verifyResultText("");
 
 })
 
 test('Verifying JSPrompt Functionality without data and OK Button', async ({ page }) => {
     const javascriptpage = new jspage();
-    javascriptpage.invoke_jsprompt();
-    javascriptpage.verify_alerttext(Text);
-    javascriptpage.click_ok();
-    javascriptpage.verify_resulttext(Text);
+    javascriptpage.invokeJsPrompt();
+    javascriptpage.verifyAlertText("");
+    javascriptpage.clickOk();
+    javascriptpage.verifyResultText("");
 })
 
 test('Verifying JSPrompt Functionality and Cancel Button', async ({ page }) => {
     const javascriptpage = new jspage();
-    javascriptpage.invoke_jsprompt();
-    javascriptpage.verify_alerttext(Text);
-    javascriptpage.click_cancel();
-    javascriptpage.verify_resulttext(Text);
+    javascriptpage.invokeJsPrompt();
+    javascriptpage.verifyAlertText("");
+    javascriptpage.clickCancel();
+    javascriptpage.verifyResultText("");
 
 })
