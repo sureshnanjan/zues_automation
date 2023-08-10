@@ -1,0 +1,852 @@
+{
+	"info": {
+		"_postman_id": "bf0faa19-8afc-44ee-af85-8483c395f4bc",
+		"name": "Restful Booker",
+		"description": "This is a collection of Restful Booker APIs.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15921666",
+		"_collection_link": "https://martian-station-300028.postman.co/workspace/caec03a1-3d6e-4ed2-bf4b-d64f49accd58/collection/15921666-bf0faa19-8afc-44ee-af85-8483c395f4bc?action=share&creator=15921666&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Create Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// pm.test(\"Status code is 400\", function () {\r",
+							"//     pm.response.to.have.status(400);\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"Status code is 404\", function () {\r",
+							"//     pm.response.to.have.status(404);\r",
+							"// });\r",
+							"\r",
+							"const jsonResponse = pm.response.json();\r",
+							"pm.environment.set('token', jsonResponse.token);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/auth",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Token - Mock",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/auth",
+							"protocol": "https",
+							"host": [
+								"04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1b-WdKYUnqiiD86eBjltAjBce3MCYU\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Aug 2023 13:49:29 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"67eac925b10391c\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GetBookingIds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// pm.test(\"Status code is 400\", function () {\r",
+							"//     pm.response.to.have.status(400);\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"Status code is 404\", function () {\r",
+							"//     pm.response.to.have.status(404);\r",
+							"// });\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/booking?firstname=Glad&lastname=O'Connor",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking"
+					],
+					"query": [
+						{
+							"key": "firstname",
+							"value": "Glad"
+						},
+						{
+							"key": "lastname",
+							"value": "O'Connor"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetBookingIds - Mock",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Glad\",\r\n    \"lastname\": \"O'Connor\",\r\n    \"checkin\": \"\",\r\n    \"checkout\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking",
+							"protocol": "https",
+							"host": [
+								"04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59639"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"e8f7-SvyqixdOqvoSm+2iAGzvZ/u6vms\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Aug 2023 13:50:30 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bookingid\": 4068\n    },\n    {\n        \"bookingid\": 4014\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "GetBooking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// pm.test(\"Status code is 400\", function () {\r",
+							"//     pm.response.to.have.status(400);\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"Status code is 404\", function () {\r",
+							"//     pm.response.to.have.status(404);\r",
+							"// });\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/booking/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetBooking - Mock",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking/1",
+							"protocol": "https",
+							"host": [
+								"04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"booking",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "138"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8a-0RdTDd4QcM8YvJMPjudpMxK0GmQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Aug 2023 13:52:33 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"firstname\": \"Jim\",\n    \"lastname\": \"Brown\",\n    \"totalprice\": 283,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2018-07-27\",\n        \"checkout\": \"2019-03-10\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "CreateBooking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// pm.test(\"Status code is 400\", function () {\r",
+							"//     pm.response.to.have.status(400);\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"Status code is 404\", function () {\r",
+							"//     pm.response.to.have.status(404);\r",
+							"// });\r",
+							"\r",
+							"const jsonResponse = pm.response.json();\r",
+							"pm.environment.set('bookingId', jsonResponse.bookingid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\" : \"Glad\",\r\n    \"lastname\" : \"O'Connor\",\r\n    \"totalprice\" : 1000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2022-01-01\",\r\n        \"checkout\" : \"2023-01-30\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast, Dinner\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/booking",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CreateBooking - Mock",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Glad\",\r\n    \"lastname\" : \"O'Connor\",\r\n    \"totalprice\" : 1000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2022-01-01\",\r\n        \"checkout\" : \"2023-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast, Dinner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking",
+							"protocol": "https",
+							"host": [
+								"04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "210"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"d2-8XQy9I+AYVdgVnqjwMalO7EJC5s\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Aug 2023 13:53:14 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bookingid\": 1059,\n    \"booking\": {\n        \"firstname\": \"Glad\",\n        \"lastname\": \"O'Connor\",\n        \"totalprice\": 1000,\n        \"depositpaid\": true,\n        \"bookingdates\": {\n            \"checkin\": \"2022-01-01\",\n            \"checkout\": \"2023-01-01\"\n        },\n        \"additionalneeds\": \"Breakfast, Dinner\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "UpdateBooking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// pm.test(\"Status code is 400\", function () {\r",
+							"//     pm.response.to.have.status(400);\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"Status code is 404\", function () {\r",
+							"//     pm.response.to.have.status(404);\r",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\" : \"Glad\",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/booking/{{bookingId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking",
+						"{{bookingId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UpdateBooking - Mock",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "token={{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Glad\",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking/{{bookingId}}",
+							"protocol": "https",
+							"host": [
+								"04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"booking",
+								"{{bookingId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "169"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"a9-CGJ0aPBRzPnHCVVwvMmTkvHrRbE\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Aug 2023 13:55:47 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"firstname\": \"Glad\",\n    \"lastname\": \"Brown\",\n    \"totalprice\": 111,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2018-01-01\",\n        \"checkout\": \"2019-01-01\"\n    },\n    \"additionalneeds\": \"Breakfast\"\n}"
+				}
+			]
+		},
+		{
+			"name": "UpdateBooking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// pm.test(\"Status code is 400\", function () {\r",
+							"//     pm.response.to.have.status(400);\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"Status code is 404\", function () {\r",
+							"//     pm.response.to.have.status(404);\r",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\" : \"Glad\",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/booking/{{bookingId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking",
+						"{{bookingId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UpdateBooking - Mock",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "token={{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Glad\",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking/{{bookingId}}",
+							"protocol": "https",
+							"host": [
+								"04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"booking",
+								"{{bookingId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "169"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"a9-CGJ0aPBRzPnHCVVwvMmTkvHrRbE\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Aug 2023 13:56:52 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"firstname\": \"Glad\",\n    \"lastname\": \"Brown\",\n    \"totalprice\": 111,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2018-01-01\",\n        \"checkout\": \"2019-01-01\"\n    },\n    \"additionalneeds\": \"Breakfast\"\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteBooking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// pm.test(\"Status code is 200\", function () {\r",
+							"//     pm.response.to.have.status(200);\r",
+							"// });\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// pm.test(\"Status code is 400\", function () {\r",
+							"//     pm.response.to.have.status(400);\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"Status code is 404\", function () {\r",
+							"//     pm.response.to.have.status(404);\r",
+							"// });\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/booking/{{bookingId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking",
+						"{{bookingId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteBooking - Mock",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "token={{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking/{{bookingId}}",
+							"protocol": "https",
+							"host": [
+								"04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"booking",
+								"{{bookingId}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "7"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"7-rM9AyJuqT6iOan/xHh+AW+7K/T8\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Aug 2023 13:57:21 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "Created"
+				}
+			]
+		}
+	]
+}
