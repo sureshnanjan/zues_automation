@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "8291243e-c164-4b89-b6de-ec1be82869f5",
 		"name": "QA Training",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "2780627"
 	},
 	"item": [
@@ -25,7 +25,7 @@
 									"});\r",
 									"\r",
 									"var jsondata = pm.response.json();\r",
-									"pm.globals.set(\"token\",jsondata.token)"
+									"pm.collectionVariables.set(\"token\",jsondata.token)"
 								],
 								"type": "text/javascript"
 							}
@@ -49,15 +49,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{url}}/auth",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"auth"
-							]
-						}
+						"url": "{{url}}/auth"
 					},
 					"response": [
 						{
@@ -80,15 +72,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "{{url}}/auth",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"auth"
-									]
-								}
+								"url": "{{url}}/auth"
 							},
 							"status": "OK",
 							"code": 200,
@@ -436,15 +420,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{url}}/booking",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"booking"
-							]
-						}
+						"url": "{{url}}/booking"
 					},
 					"response": [
 						{
@@ -468,15 +444,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "{{url}}/booking",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"booking"
-									]
-								}
+								"url": "{{url}}/booking"
 							},
 							"status": "OK",
 							"code": 200,
@@ -810,15 +778,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/booking/1?id={{bookingId}}",
+							"raw": "{{url}}/booking/:id",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"booking",
-								"1"
+								":id"
 							],
-							"query": [
+							"variable": [
 								{
 									"key": "id",
 									"value": "{{bookingId}}"
@@ -929,15 +897,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{url}}/ping",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ping"
-							]
-						}
+						"url": "{{url}}/ping"
 					},
 					"response": [
 						{
@@ -945,15 +905,7 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "{{url}}/ping",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"ping"
-									]
-								}
+								"url": "{{url}}/ping"
 							},
 							"status": "Created",
 							"code": 201,
