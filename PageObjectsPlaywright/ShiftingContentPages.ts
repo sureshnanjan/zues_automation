@@ -2,15 +2,17 @@ import { expect, Locator, Page } from '@playwright/test';
 import {ShiftingContent} from "../Operations/ShiftingContentOps"
 export class ShiftingContentPages implements ShiftingContent{
     readonly page: Page;
+    heading: Locator;
 
     constructor(page: Page) {
         this.page = page;
+        this.heading = page.locator('h3', { hasText: 'Shifting Content' })
     }
-    visit() {
-        throw new Error('Method not implemented.');
+    async visit() {
+        await this.page.goto('https://the-internet.herokuapp.com/shifting_content')
     }
-    checkHeading(headingText: string): void {
-        throw new Error('Method not implemented.');
+    async checkHeading(headingText: string): Promise<void> {
+        await expect(this.heading).toHaveText(headingText)
     }
     Ex1Menu(): void {
         throw new Error('Method not implemented.');

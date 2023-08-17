@@ -9,7 +9,7 @@ export interface LargeAndDeepDOMOps{
     verifyNumberOfTableRows(): void;
     verifyNumberOfTableColumns(): void;
     verifySpecificElementInTable(row:Number, column:Number): void;
-    verifyTotalRowsInNthColumn(column:Number): void;
+    //verifyTotalRowsInNthColumn(column:Number): void;
 
 }   
 

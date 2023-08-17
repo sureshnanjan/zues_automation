@@ -1,7 +1,6 @@
 /// <
 const { test, expect } = require('@playwright/test');
 
-import { HomePageWithInterfaceImpl } from '../PageObjectsPlaywright/HomePageWithInterfacesImpl';
 import { ShiftingContentPages } from '../PageObjectsPlaywright/ShiftingContentPages';
 
 
@@ -15,7 +14,7 @@ test('Visit shifting content page', async ({page}) =>{
 test('Verify shifting content page heading', async ({page}) =>{
 
   const ShiftingContentPage = new ShiftingContentPages(page);
-  await ShiftingContentPage.checkHeading("sample heading");
+  await ShiftingContentPage.checkHeading("Shifting Content");
  
 });
 

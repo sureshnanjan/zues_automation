@@ -1,7 +1,43 @@
 import { expect, Locator, Page } from '@playwright/test';
 import {LargeAndDeepDOMOps} from "../Operations/largeAndDeepDOMOps"
 export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
-    pageHeading: any;
+    readonly page: Page;
+    heading: Locator;
+    pageHeading: Locator;
+    subHeading: Locator;
+    pageInstruction: Locator;
+    noSibling: Locator;
+    totalSibling: Locator;
+    totalRow: Locator;
+    totalHeader: Locator;
+    
+
+
+    constructor(page: Page) {
+        this.page = page;
+        this.pageHeading = page.locator("xpath=//div[@class='example']//h3");
+        this.subHeading = page.locator("xpath=//h4");
+        this.pageInstruction = page.locator("xpath=//div[@class='example']//p");
+        this.noSibling = page.locator("xpath=//div[@id='no-siblings']");
+        this.totalSibling = page.locator("xpath=//div[@id='sibling-50.3']");
+        this.totalRow = page.locator("xpath=//tr[@class='row-50']");
+        this.totalHeader = page.locator("xpath=//th[@class='header-50']");
+    
+        
+    }
+
+    pageNthSibling(X: number): Locator {
+        return this.page.locator(`xpath=//div[@id='sibling-[${X}].1']`);
+    }
+
+    pageSepcificElementInTable(X: number, Y: number): Locator {
+        return this.page.locator(`//tr[@class='row-[${X}]']//td[@class="column-[${Y}]"]]`);
+    }
+    
+
+    async visit() {
+        await this.page.goto('https://the-internet.herokuapp.com/large');
+    }
 
      /**
  * Verifies the heading of a document.
@@ -9,8 +45,8 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
  * @param {string} heading - The heading to verify.
  * @returns {void}
  */
-    verifyHeading(heading: String): void {
-        throw new Error('Method not implemented.');
+    async verifyHeading(headingText: string): Promise<void> {
+        await expect(this.pageHeading).toHaveText(headingText);
     }
 
  /**
@@ -19,8 +55,8 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    * @param {string} subHeading - The subheading to verify.
    * @returns {void}
    */
-    verifySubHeadings(subHeading: String): void {
-        throw new Error('Method not implemented.');
+    async verifySubHeadings(SubHeading: string): Promise<void> {
+        await expect(this.subHeading).toHaveText(SubHeading);
     }
 
       /**
@@ -29,8 +65,8 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    * @param {string} instruction - The instruction to verify.
    * @returns {void}
    */
-    verifyInstruction(instruction: String): void {
-        throw new Error('Method not implemented.');
+    async  verifyInstruction(instruction: string): Promise<void> {
+        await expect(this.pageInstruction).toHaveText(instruction);
     }
 
       /**
@@ -38,8 +74,8 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    *
    * @returns {void}
    */
-    verifyNoSiblings(): void {
-        throw new Error('Method not implemented.');
+      async verifyNoSiblings(): Promise<void> {
+        await expect(this.pageInstruction).toHaveText("No siblings");
     }
 
      /**
@@ -48,8 +84,8 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    * @param {number} siblingToSearch - The index of the sibling to search for.
    * @returns {void}
    */
-    verifyNthSibling(siblingToSearch: Number): void {
-        throw new Error('Method not implemented.');
+    async verifyNthSibling(siblingToSearch: number): Promise<void> {
+        await expect(this.pageNthSibling(siblingToSearch).isVisible);
     }
 
     /**
@@ -57,8 +93,8 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    *
    * @returns {void}
    */
-    verifyTotalSiblings(): void {
-        throw new Error('Method not implemented.');
+    async verifyTotalSiblings(): Promise<void> {
+        await expect(this.totalSibling.isVisible);
     }
 
       /**
@@ -66,8 +102,8 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    *
    * @returns {void}
    */
-    verifyNumberOfTableRows(): void {
-        throw new Error('Method not implemented.');
+      async verifyNumberOfTableRows(): Promise<void> {
+        await expect(this.totalRow.isVisible);
     }
 
       /**
@@ -75,8 +111,8 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    *
    * @returns {void}
    */
-    verifyNumberOfTableColumns(): void {
-        throw new Error('Method not implemented.');
+      async verifyNumberOfTableColumns(): Promise<void> {
+        await expect(this.totalHeader.isVisible);
     }
 
      /**
@@ -86,19 +122,10 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    * @param {number} column - The column index of the element.
    * @returns {void}
    */
-    verifySpecificElementInTable(row: Number, column: Number): void {
-        throw new Error('Method not implemented.');
+     async verifySpecificElementInTable(row: number, column: number): Promise<void> {
+        await expect(this.pageSepcificElementInTable(row,column).isVisible);
     }
 
-     /**
-   * Verifies the total number of rows in a specific column of a table.
-   *
-   * @param {number} column - The index of the column to check.
-   * @returns {void}
-   */
-    verifyTotalRowsInNthColumn(column: Number): void {
-        throw new Error('Method not implemented.');
-    }
  
    
 }
