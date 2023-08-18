@@ -1,44 +1,73 @@
 import { IDynamicControls } from "../Operations/IDynamicControl";
+import { expect, Page } from "@playwright/test"
 
 class DynamicControls implements IDynamicControls{
-    verifyHeading(expectedHeading: any) {
-        throw new Error("Method not implemented.");
+    readonly page
+    readonly heading
+    readonly description
+    readonly checkbox
+    readonly removeButton
+    readonly addButton
+    readonly addRemovetext
+    readonly loadingIndicator
+    readonly textbox
+    readonly enableButton
+    readonly disableButton
+    readonly enableDisableText
+
+    constructor(page:Page){
+        this.page = page
+        this.heading = page.locator('h4')
+        this.description = page.locator('//*[@id="content"]/div[1]/p')
+        this.checkbox = page.locator('//*[@id="checkbox"]/input')
+        this.removeButton = page.locator('//*[@id="checkbox-example"]/button', {hasText: 'Remove'})
+        this.addButton = page.locator('//*[@id="checkbox-example"]/button', {hasText: 'Add'})
+        this.addRemovetext = page.locator('//*[@id="checkbox-example"]/p')
+        this.loadingIndicator = page.locator('//div[@id="loading"]')
+        this.textbox = page.locator('//*[@id="input-example"]/input')
+        this.enableButton = page.locator('//*[@id="input-example"]/button', {hasText: 'Enable'})
+        this.disableButton = page.locator('//*[@id="input-example"]/button', {hasText: 'Disable'})
+        this.enableDisableText = page.locator('//*[@id="input-example"]/p')
     }
-    verifyDescription() {
-        throw new Error("Method not implemented.");
+
+    async verifyHeading(expectedHeading: string) {
+        await expect(this.heading.first()).toHaveText(expectedHeading)
     }
-    selectCheckbox() {
-        throw new Error("Method not implemented.");
+    async verifyDescription(expectedDescription: string) {
+        await expect(this.description).toHaveText(expectedDescription)
     }
-    clickRemove() {
-        throw new Error("Method not implemented.");
+    async selectCheckbox() {
+        await this.checkbox.click()
     }
-    verifyConfirmationText(expectedText: any) {
-        throw new Error("Method not implemented.");
+    async clickRemove() {
+        await this.removeButton.click()
     }
-    verifyLoadingIndicator() {
-        throw new Error("Method not implemented.");
+    async verifyConfirmationText(expectedText: any) {
+        await expect(this.addRemovetext).toHaveText(expectedText)
     }
-    verifyLoadingIndicatorText(expectedText: any) {
-        throw new Error("Method not implemented.");
+    async verifyLoadingIndicator() {
+        await expect(this.loadingIndicator.locator('img')).toHaveAttribute('src', '/img/ajax-loader.gif')
     }
-    clickAdd() {
-        throw new Error("Method not implemented.");
+    async verifyLoadingIndicatorText(expectedText: string) {
+        await expect(this.loadingIndicator).toHaveText(expectedText)
     }
-    verifyTextboxEnabled() {
-        throw new Error("Method not implemented.");
+    async clickAdd() {
+        await this.addButton.click()
     }
-    clickEnable() {
-        throw new Error("Method not implemented.");
+    async verifyTextboxEnabled() {
+        expect(await this.textbox.isEnabled()).toBeTruthy()
     }
-    verifyTextboxDisabled() {
-        throw new Error("Method not implemented.");
+    async clickEnable() {
+        await this.enableButton.click()
     }
-    clickDisable() {
-        throw new Error("Method not implemented.");
+    async verifyTextboxDisabled() {
+        expect(await this.textbox.isDisabled()).toBeTruthy()
     }
-    enterText(text: any) {
-        throw new Error("Method not implemented.");
+    async clickDisable() {
+        await this.disableButton.click()
+    }
+    async enterText(text: any) {
+        await this.textbox.fill(text)
     }
     
 }
