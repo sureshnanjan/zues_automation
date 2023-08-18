@@ -7,7 +7,7 @@ export interface IDynamicControls{
     /**
      * This function verifies the description on the Dynamic Controls page
      */
-    verifyDescription()
+    verifyDescription(expectedDescription)
     /**
      * This function selects the checkbox
      */
