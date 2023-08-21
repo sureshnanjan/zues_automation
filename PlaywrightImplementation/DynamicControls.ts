@@ -1,7 +1,7 @@
 import { IDynamicControls } from "../Operations/IDynamicControl";
 import { expect, Page } from "@playwright/test"
 
-class DynamicControls implements IDynamicControls{
+export class DynamicControls implements IDynamicControls{
     readonly page
     readonly heading
     readonly description
@@ -42,17 +42,20 @@ class DynamicControls implements IDynamicControls{
     async clickRemove() {
         await this.removeButton.click()
     }
-    async verifyConfirmationText(expectedText: any) {
+    async verifyAddRemoveConfirmationText(expectedText: any) {
         await expect(this.addRemovetext).toHaveText(expectedText)
     }
     async verifyLoadingIndicator() {
-        await expect(this.loadingIndicator.locator('img')).toHaveAttribute('src', '/img/ajax-loader.gif')
+        await expect(this.loadingIndicator.locator('img').last()).toHaveAttribute('src', '/img/ajax-loader.gif')
     }
     async verifyLoadingIndicatorText(expectedText: string) {
-        await expect(this.loadingIndicator).toHaveText(expectedText)
+        await expect(this.loadingIndicator.last()).toHaveText(expectedText)
     }
     async clickAdd() {
         await this.addButton.click()
+    }
+    async verifyEnableDisableConfirmationText(expectedText: any) {
+        await expect(this.enableDisableText).toHaveText(expectedText)
     }
     async verifyTextboxEnabled() {
         expect(await this.textbox.isEnabled()).toBeTruthy()

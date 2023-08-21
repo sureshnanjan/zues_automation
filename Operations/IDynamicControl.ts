@@ -17,10 +17,10 @@ export interface IDynamicControls{
      */
     clickRemove()
     /**
-     * This function verifies the confirmation text displayed after clicking remove/add/enable/disable button
+     * This function verifies the confirmation text displayed after clicking remove/add button
      * @param expectedText Enter the expected text
      */
-    verifyConfirmationText(expectedText)
+    verifyAddRemoveConfirmationText(expectedText)
     /**
      * This function verifies the loading indicator
      */
@@ -34,6 +34,11 @@ export interface IDynamicControls{
      * This function clicks the Add button
      */
     clickAdd()
+    /**
+     * This function verifies the confirmation text displayed after clicking enable/disable button
+     * @param expectedText Enter the expected text
+     */
+    verifyAddRemoveConfirmationText(expectedText)
     /**
      * This function verifies the text box is enabled
      */
