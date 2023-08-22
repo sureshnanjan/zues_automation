@@ -4,22 +4,14 @@ export interface ISecureDownloadOps {
    */
   gotoSecureFileDownloadsPage(): Promise<void>;
   /**
-   * After unsuccessful login in check the heading name is correct.
-   * @param expectedText - This is used to check the expected heading on the secure file download page for unsuccessful login.
+   * After login in check the heading name is correct.
+   * Check the font size of the heading
+   * @param expected - This is used to check the expected heading on the secure file download page
    */
-  checkUnsuccessfulHeading(expectedText: string): Promise<void>;
+  checkSecureFileDownloadHeading(expected: string): Promise<void>;
   /**
-   * After successful login in check the heading name is correct.
-   * @param expectedText - This is used to check the expected heading on the secure file download page for successful login.
-   */
-  checkSecureFileDownloadHeading(expectedText: string): Promise<void>;
-  /**
-   * After login in check if there are more than one file available on Secure Download page.
-   */
-  checkAvailableFilesAreMoreThan1(): Promise<void>
-  /**
-   * Checks the link is visible or not.
-   * @param expectedLink - This is used to check the expected download link.
+   * Checks the link is visible or not
+   * @param expectedLink - This is used to check the expected download link
    */
   checkDownloadLink(expectedLink: string): Promise<void>
   /**
@@ -34,4 +26,16 @@ export interface ISecureDownloadOps {
    * @param path - This is used to check whether the file is downloaded in correct path.
    */
   checkDownloadedFile(path: string): Promise<void>;
+  /**
+   * Check heading when login is not successful
+   * @param expected - This is used to check the expected heading after unsuccessful login
+   */
+
+  checkUnsuccessfulHeading(expectedText: string): Promise<void>;
+
+ /**
+   * Check if more than 1 file is available
+   * 
+   */
+  checkAvailableFilesAreMoreThan1(): Promise<void>;
 }
