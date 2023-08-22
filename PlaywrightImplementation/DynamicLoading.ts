@@ -5,7 +5,7 @@ import assert from 'assert';
 export class DynamicLoadingwithInterface implements IDynamicLoading {
     [x: string]: any;
     private browser: Browser;
-    private page: Page;
+    //private page: Page;
     readonly pageHeading: Locator;
     readonly pageContent: Locator;
     readonly button: Locator;
@@ -13,32 +13,29 @@ export class DynamicLoadingwithInterface implements IDynamicLoading {
     textBox: any;
     static locator: any;
 
-    constructor(pagearg: Page){  
-        this.pageContent = DynamicLoadingwithInterface.locator('//*[@id="content"]/div/p[2]', {hasText: 'There are two examples. One in which an element already exists on the page but it is not displayed. And anonther where the element is not on the page and gets added in.'})
+    constructor(public page: Page){
+        //this.pageContent = DynamicLoadingwithInterface.locator('//*[@id="content"]/div/p[2]', {hasText: 'There are two examples. One in which an element already exists on the page but it is not displayed. And anonther where the element is not on the page and gets added in.'})
       }
+    checkPageHeading(expectedPageHeading: String): void {
+        throw new Error('Method not implemented.');
+    }
+    checkPageSubHeadingOfHidden(expectedsubPageHeadingOfHidden: String): void {
+        throw new Error('Method not implemented.');
+    }
+    checkPageSubHeadingOfRendered(expectedsubPageHeadingOfRendered: String): void {
+        throw new Error('Method not implemented.');
+    }
 
-    async gotoDynamicLoading(): Promise<void> {
+    async gotoDynamicLoading(){
         await this.page.goto('https://the-internet.herokuapp.com/dynamic_loading');
     }
-    async checkPageHeading(expectedPageHeading: String): Promise<void> {
-        const actualHeading = await this.pageHeading.textContent();
-        expect(actualHeading).toBe(expectedPageHeading);
-    }
-    async clickFirstkHyperLink(): Promise<void> {
+    async clickFirstkHyperLink(){
         await this.page.getByRole('link', {name: 'Example 1: Element on page that is hidden'}).click();
     }
-    async checkPageSubHeadingOfHidden(expectedsubPageHeadingOfHidden: String): Promise<void> {
-        const actualHiddenSubHeading = await this.pageHeading.textContent();
-        expect(actualHiddenSubHeading).toBe(expectedsubPageHeadingOfHidden);
-    }
-    async clickSecondkHyperLink(): Promise<void> {
+    async clickSecondkHyperLink(){
         await this.page.getByRole('link', {name: 'Example 2: Element rendered after the fact'}).click();
     }
-    async checkPageSubHeadingOfRendered(expectedsubPageHeadingOfRendered: String): Promise<void> {
-        const actualRenderedSubHeading = await this.pageHeading.textContent();
-        expect(actualRenderedSubHeading).toBe(expectedsubPageHeadingOfRendered);
-    }
-    async clickStartButton(): Promise<void> {
-        await this.locator.getByRole('button', {name: 'Start'}).click();          
+    async clickStartButton(){
+        await this.page.getByRole('button', {name: 'Start'}).click();          
     }
 }

@@ -10,7 +10,8 @@ test('Visit Dynamic Loading page', async ({ page }) => {
 test('Verify the heading of Dynamic Loading page', async ({ page }) => {
     const DynamicLoading = new DynamicLoadingwithInterface(page);
     await DynamicLoading.gotoDynamicLoading();
-    await DynamicLoading.checkPageHeading('Dynamically Loaded Page Elements');
+    //test.setTimeout(120000);
+    await expect(page.getByText('Dynamically Loaded Page Elements')).toBeVisible();
 })
 
 test('Click on example 1', async ({ page }) => {
@@ -31,22 +32,23 @@ test('Verify if sub heading of example 1 page', async ({ page }) => {
     const DynamicLoading = new DynamicLoadingwithInterface(page);
     await DynamicLoading.gotoDynamicLoading();
     await DynamicLoading.clickFirstkHyperLink();
-    await DynamicLoading.checkPageSubHeadingOfHidden('Example 1: Element on page that is hidden');
+    await expect(page.getByText('Example 1: Element on page that is hidden')).toBeVisible();
 })
 
 test('Verify if sub heading of example 2 page', async ({ page }) => {
     const DynamicLoading = new DynamicLoadingwithInterface(page);
     await DynamicLoading.gotoDynamicLoading();
     await DynamicLoading.clickSecondkHyperLink();
-    await DynamicLoading.checkPageSubHeadingOfRendered('Example 2: Element rendered after the fact');
+    await expect(page.getByText('Example 2: Element rendered after the fact')).toBeVisible();
 })
 
 test('Verify if element is hidden', async ({ page }) => {
     const DynamicLoading = new DynamicLoadingwithInterface(page);
     await DynamicLoading.gotoDynamicLoading();
     await DynamicLoading.clickFirstkHyperLink();
-    const hellowworld = page.locator('//*[@id="finish"]') 
-    expect(hellowworld.isHidden()).toBe(true);
+    //const hellowworld = document.getElementById('finish') 
+    //expect(hellowworld.isHidden()).toBe(true);
+    await expect(page.getByText('Hello World!')).toBeHidden();
 })
 
 test('Verify if element is not hidden after clicking on start button', async ({ page }) => {
@@ -55,8 +57,7 @@ test('Verify if element is not hidden after clicking on start button', async ({ 
     await DynamicLoading.clickFirstkHyperLink();
     await DynamicLoading.clickStartButton();
     test.setTimeout(120000);
-    const hellowworld = page.locator('//*[@id="finish"]');
-    expect(hellowworld.isVisible()).toBe(true);
+    await expect(page.getByText('Hello World!')).toBeHidden();
 })
 
 test('Verify if element is rendered after clicking on start button', async ({ page }) => {
@@ -65,7 +66,5 @@ test('Verify if element is rendered after clicking on start button', async ({ pa
     await DynamicLoading.clickFirstkHyperLink();
     await DynamicLoading.clickStartButton();
     test.setTimeout(120000);
-    const hellowworld = page.locator('//*[@id="finish"]');
-    await page.isVisible("text='Hello World'");
-    expect(hellowworld.isVisible()).toBe(true);
+    await expect(page.locator("text='Hello World'")).toBeHidden()
 })
