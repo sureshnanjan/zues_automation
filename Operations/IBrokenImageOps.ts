@@ -1,1 +1,3 @@
-export interface IBrokenImageOps{}
+export interface IBrokenImageOps{
+    
+}

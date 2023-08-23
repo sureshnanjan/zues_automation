@@ -1,13 +1,17 @@
 const assert = require('assert');
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { HomePage } = require('../../PlaywrightImplementation/HomePage');
+const { webkit } = require('playwright');
+
 Given('Heroku Home Page is available',function(){
   const hpg = new HomePage();
   hpg.visit("theinternet.com");
+  
 
 });
 When('available examples are counted', function () {
   this.result = 44;
+  // Playwrigh PO ontain the no of links 
 });
 When('right side bar is viewed', function () {
   this.result = 44;

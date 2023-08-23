@@ -1,4 +1,6 @@
 Feature: Heroku App Application Features
+Scenario Background:
+  Given Heroku Home Page is available
   Scenario: Home Page Items Check
     Given Heroku Home Page is available
     When available examples are counted
