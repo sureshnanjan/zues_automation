@@ -22,6 +22,7 @@ test.describe('Test Dynamic Controls Page', () => {
   test('Verify if heading is correct', async () => {
     const expectedHeading = 'Dynamic Controls';
     await dynamicControlsPage.verifyHeading(expectedHeading);
+    //asseertion is required
   });
 
   /**
@@ -29,6 +30,7 @@ test.describe('Test Dynamic Controls Page', () => {
    */
   test('Verify if content description is correct', async () => {
     await dynamicControlsPage.verifyDescription();
+    //asseertion is required
   });
 
   /**
