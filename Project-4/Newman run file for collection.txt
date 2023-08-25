@@ -1,0 +1,86 @@
+C:\Users\Saba.Khan\Postman\files>newman run HerokuApp-RestBooker.postman_collection.json
+newman
+
+Heroku App - RestBooker
+
+□ Auth
+└ Create Token
+  POST https://restful-booker.herokuapp.com/auth [200 OK, 271B, 1146ms]
+  √  Status code name has string
+  √  Body matches string
+
+□ Booking
+└ GetBookingId
+  GET https://restful-booker.herokuapp.com/booking [200 OK, 72.55kB, 757ms]
+  √  Status code is 200
+
+└ GetBooking
+  GET https://restful-booker.herokuapp.com/booking/1517 [200 OK, 414B, 259ms]
+  √  Status code is 200
+
+└ GetBookingby Name
+  GET https://restful-booker.herokuapp.com/booking?firstname=saba&lastname=khan [200 OK, 244B, 258ms]
+  √  Status code is 200
+
+└ GetBookingbyCheckinCheckout
+  GET https://restful-booker.herokuapp.com/booking?checkin=2018-01-01&checkout=2019-01-01 [200 OK, 261B, 260ms]
+  √  Status code is 200
+
+└ CreateBooking
+  POST https://restful-booker.herokuapp.com/booking [200 OK, 442B, 256ms]
+  √  Status code is 200
+
+└ UpdateBooking
+  PUT https://restful-booker.herokuapp.com/booking/1517 [403 Forbidden, 252B, 256ms]
+  1. Status code is 200
+
+└ PartialUpdateBooking
+  PATCH https://restful-booker.herokuapp.com/booking/5649 [403 Forbidden, 252B, 255ms]
+  2. Status code is 200
+
+└ DeleteBooking
+  DELETE https://restful-booker.herokuapp.com/booking/4307 [403 Forbidden, 252B, 256ms]
+  3. Status code is 201
+
+□ Ping
+└ HealthCheck
+  GET https://restful-booker.herokuapp.com/ping [201 Created, 248B, 257ms]
+  √  Body matches string
+  √  Successful get request
+
+┌─────────────────────────┬─────────────────────┬─────────────────────┐
+│                         │            executed │              failed │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              iterations │                   1 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│                requests │                  10 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│            test-scripts │                  20 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│      prerequest-scripts │                  10 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              assertions │                  12 │                   3 │
+├─────────────────────────┴─────────────────────┴─────────────────────┤
+│ total run duration: 4.8s                                            │
+├─────────────────────────────────────────────────────────────────────┤
+│ total data received: 72.74kB (approx)                               │
+├─────────────────────────────────────────────────────────────────────┤
+│ average response time: 396ms [min: 255ms, max: 1146ms, s.d.: 291ms] │
+└─────────────────────────────────────────────────────────────────────┘
+
+  #  failure                detail
+
+ 1.  AssertionError         Status code is 200
+                            expected response to have status code 200 but got 403
+                            at assertion:0 in test-script
+                            inside "Booking / UpdateBooking"
+
+ 2.  AssertionError         Status code is 200
+                            expected response to have status code 200 but got 403
+                            at assertion:0 in test-script
+                            inside "Booking / PartialUpdateBooking"
+
+ 3.  AssertionError         Status code is 201
+                            expected response to have status code 201 but got 403
+                            at assertion:0 in test-script
+                            inside "Booking / DeleteBooking"
