@@ -55,4 +55,9 @@ export interface IDynamicControls{
      * @param text Enter the text to be entered in the text box
      */
     enterText(text)
+
+    /**
+     * This function retrieves the value of the input field and@returns The value of the input field.
+     */
+    getInputFieldValue()
 }
