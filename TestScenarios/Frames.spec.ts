@@ -1,5 +1,5 @@
 import { Page, BrowserContext, test, expect } from '@playwright/test';
-import { Frames } from "../PageObject/Frames";
+import { Frames } from "../PlaywrightImplementation/Frames";
 
 //  Test case 01: To verify link count in the page
 test('Verify the no. of links available', async ({ page }) => {
@@ -35,15 +35,15 @@ test('To check the iFrame link has correctly loaded or not', async ({ page }) =>
     const frames = new Frames(page);
     await frames.visit();
     await frames.Link1.click();
-    await frames.gotoExample1(expectedURLnestedframesPage);
+    await frames.gotoiFrames(expectedHeadingiFramesPage);
 })
 
 //  Test case 06: To verify user has navigated to the correct Nested Frame link
 test('To check the Nested Frame link has correctly loaded or not', async ({ page }) => {
     const frames = new Frames(page);
     await frames.visit();
-    await frames.Link1.click();
-    await frames.gotoExample2(expectedHeadingiFramesPage);
+    await frames.Link2.click();
+    await frames.gotoNestedFrame(expectedURLnestedframesPage);
 }) 
 
 
