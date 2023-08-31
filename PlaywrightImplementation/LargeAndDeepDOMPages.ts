@@ -16,7 +16,7 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
     constructor(page: Page) {
         this.page = page;
         this.pageHeading = page.locator("xpath=//div[@class='example']//h3");
-        this.subHeading = page.locator("xpath=//h4");
+        this.subHeading = page.locator("xpath=(//h4)[1]");
         this.pageInstruction = page.locator("xpath=//div[@class='example']//p");
         this.noSibling = page.locator("xpath=//div[@id='no-siblings']");
         this.totalSibling = page.locator("xpath=//div[@id='sibling-50.3']");
@@ -85,7 +85,7 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    * @returns {void}
    */
     async verifyNthSibling(siblingToSearch: number): Promise<void> {
-        await expect(this.pageNthSibling(siblingToSearch).isVisible);
+        expect(await this.pageNthSibling(siblingToSearch).isVisible()).toBe(true);
     }
 
     /**
@@ -94,7 +94,7 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    * @returns {void}
    */
     async verifyTotalSiblings(): Promise<void> {
-        await expect(this.totalSibling.isVisible);
+         expect(await this.totalSibling.isVisible()).toBe(true);
     }
 
       /**
@@ -103,7 +103,7 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    * @returns {void}
    */
       async verifyNumberOfTableRows(): Promise<void> {
-        await expect(this.totalRow.isVisible);
+         expect( await this.totalRow.isVisible()).toBe(true);
     }
 
       /**
@@ -112,7 +112,7 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    * @returns {void}
    */
       async verifyNumberOfTableColumns(): Promise<void> {
-        await expect(this.totalHeader.isVisible);
+         expect( await this.totalHeader.isVisible()).toBe(true);
     }
 
      /**
@@ -123,7 +123,7 @@ export class LargeAndDeepDOMPages implements LargeAndDeepDOMOps{
    * @returns {void}
    */
      async verifySpecificElementInTable(row: number, column: number): Promise<void> {
-        await expect(this.pageSepcificElementInTable(row,column).isVisible);
+         expect(await this.pageSepcificElementInTable(row,column).isVisible()).toBe(true);
     }
 
  
