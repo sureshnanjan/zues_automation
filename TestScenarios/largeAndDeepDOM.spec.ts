@@ -1,8 +1,19 @@
 /// <
 const { test, expect } = require('@playwright/test');
 
-import { LargeAndDeepDOMPages } from '../PageObjectsPlaywright/LargeAndDeepDOMPages';
+import { LargeAndDeepDOMPages } from '../PlaywrightImplementation/LargeAndDeepDOMPages';
 
+test.describe('Large and Deep dom tests', () => {
+
+  let page;
+  /**
+   * Hook executed before each test case.
+   * It initializes the `dynamicControlsPage` instance and navigates to the Dynamic Controls page.
+   */
+  test.beforeEach(async ({ page }) => {
+    const LargeAndDeepDOMPage = new LargeAndDeepDOMPages(page);
+    await LargeAndDeepDOMPage.visit();
+  });
 
 test('Visit Large and deep down page', async ({page}) =>{
 
@@ -13,7 +24,7 @@ test('Visit Large and deep down page', async ({page}) =>{
 
 test('Verify Large and deep down page  heading', async ({page}) =>{
 
-  const LargeAndDeepDOMPage = new LargeAndDeepDOMPages(page);
+  const LargeAndDeepDOMPage =  new LargeAndDeepDOMPages(page);
  await LargeAndDeepDOMPage.verifyHeading("Large & Deep DOM");
  
 });
@@ -69,6 +80,7 @@ test('verify specific element.', async ({page}) =>{
  
 });
 
+});
 
   
   
