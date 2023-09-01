@@ -1,13 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { HomePage } from '../PlaywrightImplementation/HomePage';
 import { StatusCode } from '../PlaywrightImplementation/StatusCodeIPage';
 
 /**To verify the Status Code link is clickable */
 test('Click on the link text', async ({ page }) => {
-    const Home = new HomePage(page);
     const Status = new StatusCode(page);
-    test.setTimeout(200000);
-    await Home.visit();
     Status.goto();
   });
 
@@ -57,7 +53,7 @@ test('Check the link 404 Status Code Page and the content', async ({ page }) => 
     Status.check404StatusCodePage('This page returned a 404 status code.');
 });
 
-test('Check the here link available on Status Code page', async ({ page }) => {
+test('Check the here link available on Status Code page for 404', async ({ page }) => {
     const Status = new StatusCode(page);
     Status.linkOnStatusPage('here');
 });
@@ -72,7 +68,7 @@ test('Check the link 301 Status Code Page and the content', async ({ page }) => 
     Status.check301StatusCodePage('This page returned a 301 status code.');
 });
 
-test('Check the here link available on Status Code page', async ({ page }) => {
+test('Check the here link available on Status Code page for 301 ', async ({ page }) => {
     const Status = new StatusCode(page);
     Status.linkOnStatusPage('here');
 });
@@ -87,7 +83,7 @@ test('Check the link 500 Status Code Page and the content', async ({ page }) => 
     Status.check500StatusCodePage('This page returned a 500 status code.');
 });
 
-test('Check the here link available on Status Code page', async ({ page }) => {
+test('Check the here link available on Status Code page for 500', async ({ page }) => {
     const Status = new StatusCode(page);
     Status.linkOnStatusPage('here');
 });

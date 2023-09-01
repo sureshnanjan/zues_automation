@@ -1,8 +1,8 @@
+import { Locator, Page, expect } from "@playwright/test";
 import { IStatusCode } from "../Operations/StatusCodeOps";
-import { Locator, Page } from '@playwright/test';
 import assert from "assert";
 export class StatusCode implements IStatusCode{
-    readonly page: Page;
+    readonly page: any;
     Content: Locator;
     pageHeading: Locator;
     pagelink: Locator;

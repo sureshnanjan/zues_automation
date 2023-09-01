@@ -1,10 +1,10 @@
-import { expect,Locator, Page } from '@playwright/test';
+import { Locator, Page, expect } from "@playwright/test";
 import { Slowresource } from "../Operations/SlowResourcesOps"; 
 import assert from 'assert';
     /**Create clas to export*/
     export class response implements Slowresource {  
     /**Declare variables*/
-    readonly page: Page;
+    readonly page: any;
         pageHeading: Locator;
         Content: Locator;
     constructor(page: Page) {
