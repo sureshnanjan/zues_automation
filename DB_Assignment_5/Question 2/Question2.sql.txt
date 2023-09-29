@@ -1,0 +1,13 @@
+--Write queries that can find unused tables , views
+
+--Get list of tables with type
+
+use employees;
+show full tables;
+ 
+
+SELECT table_schema, table_name, create_time, update_time
+FROM information_schema.tables
+WHERE table_schema NOT IN ('information_schema', 'mysql')
+  AND engine IS NOT NULL
+  AND ((update_time < (now() - INTERVAL 1 DAY)) OR update_time IS NULL);
