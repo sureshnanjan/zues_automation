@@ -1,0 +1,239 @@
+{
+	"id": "5dc02e0a-52e0-43cd-8f08-c153a736fa38",
+	"name": "Restful Booker",
+	"timestamp": "2023-10-03T14:32:49.007Z",
+	"collection_id": "13283230-d9cc9cba-287c-4747-aaeb-1999e53c3367",
+	"folder_id": 0,
+	"environment_id": "13283230-4aaaf28e-6813-4ab0-88f2-5c6c6a54cc4c",
+	"totalPass": 7,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-10-03T14:32:44.114Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "a93cf267-84d1-4d34-8631-17f1fc986564",
+			"name": "Create Token",
+			"url": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/auth",
+			"time": 1200,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1200
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "6c1163ec-1696-4d62-9936-96d0a5a8853e",
+			"name": "GetBookingIds",
+			"url": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking?firstname=Glad&lastname=O'Connor",
+			"time": 389,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				389
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "f9fa802b-e8c8-4e88-8ee6-3ecf197c346a",
+			"name": "GetBooking",
+			"url": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking/1",
+			"time": 432,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				432
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "fdd70d4a-acf6-4039-af86-faac77d7dfc2",
+			"name": "CreateBooking",
+			"url": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking",
+			"time": 440,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				440
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "a73a361f-69ce-4d2f-b112-09f9ec017a92",
+			"name": "UpdateBooking",
+			"url": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking/1059",
+			"time": 443,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				443
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "ead0d24c-7ba6-4b75-ba57-10e0a4a4ba98",
+			"name": "UpdateBooking",
+			"url": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking/1059",
+			"time": 372,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				372
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "d6b7370b-e46f-47a7-ab75-8ef36183ed52",
+			"name": "DeleteBooking",
+			"url": "https://04cba5d0-deaf-4c7d-bb26-f05a64ebf6fb.mock.pstmn.io/booking/1059",
+			"time": 444,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				444
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3720,
+	"collection": {
+		"requests": [
+			{
+				"id": "a93cf267-84d1-4d34-8631-17f1fc986564",
+				"method": "POST"
+			},
+			{
+				"id": "6c1163ec-1696-4d62-9936-96d0a5a8853e",
+				"method": "GET"
+			},
+			{
+				"id": "f9fa802b-e8c8-4e88-8ee6-3ecf197c346a",
+				"method": "GET"
+			},
+			{
+				"id": "fdd70d4a-acf6-4039-af86-faac77d7dfc2",
+				"method": "POST"
+			},
+			{
+				"id": "a73a361f-69ce-4d2f-b112-09f9ec017a92",
+				"method": "PUT"
+			},
+			{
+				"id": "ead0d24c-7ba6-4b75-ba57-10e0a4a4ba98",
+				"method": "PATCH"
+			},
+			{
+				"id": "d6b7370b-e46f-47a7-ab75-8ef36183ed52",
+				"method": "DELETE"
+			}
+		]
+	}
+}
