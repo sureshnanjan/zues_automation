@@ -1,0 +1,30 @@
+function Category(id, name)
+{
+    this.id = id;
+    this.name = name;
+    this.print = function()
+    {
+    console.log(`${this.id} - ${this.name}`);
+    }
+}
+
+/* Constructor function for pet */
+function pet(id, name, photoUrl, tags, i)
+{
+    this.id = id;
+    this.name = name;
+    this.photoUrl = photoUrl;
+    this.tags = tags;
+    this.status = [ "available", "pending", "sold" ]; /* As per petstore, status can have only 3 values - available, pending, sold. That is why declaring array with 3 values*/
+    this.print = function()
+    {
+        console.log(`${this.id} - ${this.name} - ${this.photoUrl} - ${this.tags} - ${this.status[i]} `);
+    }
+}
+
+let cats = new Category(1, 'cats');
+let pet1 = new pet (1, 'Manx', 'https://petstore.octoperf.com/images/cat2.gif', 1, 1); /* status[1] = available*/
+
+/* Printing output */
+cats.print();
+pet1.print();

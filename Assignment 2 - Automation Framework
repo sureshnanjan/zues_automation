@@ -1,0 +1,63 @@
+import { expect, Locator, Page } from "@playwright/test";
+
+/**
+ * This is Heroku Home Page
+ */
+export class HerokuHomePage
+{
+    readonly page: Page;
+    readonly pageHeading: Locator;
+    readonly subHeading: Locator;
+    readonly forkGithubImg: Locator;
+    readonly linkABTesting: Locator; /*Choosing only one link for example*/
+    readonly nextpageHeading: Locator;
+    readonly nextpageText: Locator;
+    
+
+    constructor(page: Page) 
+    {
+        this.page = page;
+        this.pageHeading = page.locator('h1', { hasText: 'Welcome to the-internet' });
+        this.subHeading = page.locator('h2', { hasText: 'Available Examples' });
+        this.forkGithubImg = page.getByAltText('Fork me on GitHub');
+        this.linkABTesting = page.getByRole('listitem').filter({ hasText: 'A/B Testing' }); /*Choosing only one link for example*/
+        this.nextpageHeading = page.locator('h1', { hasText: 'A/B Test Control' });
+        this.nextpageText = page.locator('h2', { hasText: 'Also known as split testing. This is a way in which businesses are able to simultaneously test and learn different versions of a page to see which text and/or functionality works best towards a desired outcome (e.g. a user action such as a click-through).' });
+    }
+
+    /**
+     * Visit the Home Page
+     */
+    async visit()
+    {
+        await this.page.goto('https://the-internet.herokuapp.com');
+    }
+
+    /**
+     * This verifies the page heading
+     * @param headingText This is the main heading of the page
+     */
+    async checkHeading(headingText: string)
+    {
+        await expect(this.pageHeading).toHaveText(headingText)
+    }
+
+    /**
+     * This verifies the page sub-heading
+     * @param subheadingText This is the sub-heading of the page
+     */
+    async checkSubHeading(subHeadingText: string)
+    {
+        await expect(this.subHeading).toHaveText(subHeadingText)
+    }
+
+    /**
+     * This verifies the total no. of links on the page
+     * @param noofLinks This is the no. of links
+     */
+    async checkAvailableExamplesCount(noofLinks: number)
+    {
+        const result = this.page.getByRole('link')
+        await expect(result).toHaveCount(noofLinks);
+    }
+}
