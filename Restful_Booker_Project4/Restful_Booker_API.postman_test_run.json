@@ -1,0 +1,270 @@
+{
+	"id": "c1f94ef0-2b80-49c8-8eed-aa8fb2b06584",
+	"name": "Restful_Booker_API",
+	"timestamp": "2023-10-04T17:14:47.711Z",
+	"collection_id": "21549804-c72c98e7-52f8-4b22-952c-558c16de2b13",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 8,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-10-04T17:14:44.205Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "e82b893d-9e1a-45c7-8830-f6b93c7e85ba",
+			"name": "Auth - CreateToken",
+			"url": "https://restful-booker.herokuapp.com/auth",
+			"time": 779,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				779
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "feb9db17-1536-4d9b-922a-28ea7a1a4956",
+			"name": "GetByBookingIds",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 480,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				480
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "14baeddf-5e7a-46a8-9b4a-cb014adb3598",
+			"name": "GetBookings",
+			"url": "https://restful-booker.herokuapp.com/booking/1",
+			"time": 239,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				239
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "21d80806-798e-479f-8e70-e8ef5edb8200",
+			"name": "CreateBooking",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 257,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				257
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "5f3da7f3-6c71-4783-b8df-35ee036b2ce5",
+			"name": "UpdateBooking",
+			"url": "https://restful-booker.herokuapp.com/booking/1315",
+			"time": 241,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				241
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "9d81358e-eda0-4482-8f8b-2f50e04cc10f",
+			"name": "PartialUpdateBooking",
+			"url": "https://restful-booker.herokuapp.com/booking/1315",
+			"time": 241,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				241
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e8d89ced-ba99-47fe-96c3-ac2c7f7622f2",
+			"name": "DeleteBooking",
+			"url": "https://restful-booker.herokuapp.com/booking/1315",
+			"time": 241,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				241
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				}
+			]
+		},
+		{
+			"id": "a4f9a445-3df6-4459-8b10-2b501bf0bd15",
+			"name": "Ping_HealthCheck",
+			"url": "https://restful-booker.herokuapp.com/ping",
+			"time": 264,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				264
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2742,
+	"collection": {
+		"requests": [
+			{
+				"id": "e82b893d-9e1a-45c7-8830-f6b93c7e85ba",
+				"method": "POST"
+			},
+			{
+				"id": "feb9db17-1536-4d9b-922a-28ea7a1a4956",
+				"method": "GET"
+			},
+			{
+				"id": "14baeddf-5e7a-46a8-9b4a-cb014adb3598",
+				"method": "GET"
+			},
+			{
+				"id": "21d80806-798e-479f-8e70-e8ef5edb8200",
+				"method": "POST"
+			},
+			{
+				"id": "5f3da7f3-6c71-4783-b8df-35ee036b2ce5",
+				"method": "PUT"
+			},
+			{
+				"id": "9d81358e-eda0-4482-8f8b-2f50e04cc10f",
+				"method": "PATCH"
+			},
+			{
+				"id": "e8d89ced-ba99-47fe-96c3-ac2c7f7622f2",
+				"method": "DELETE"
+			},
+			{
+				"id": "a4f9a445-3df6-4459-8b10-2b501bf0bd15",
+				"method": "GET"
+			}
+		]
+	}
+}
