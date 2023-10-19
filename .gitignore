@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 #Document Outputs
+=======
+# Document Outputs
+>>>>>>> 96381c8b6222205833b69c33a4b9bf077f89abc2
 out
 # Logs
+out
 logs
 *.log
 npm-debug.log*
@@ -104,3 +109,6 @@ dist
 
 # TernJS port file
 .tern-port
+/test-results/
+/playwright-report/
+/playwright/.cache/
