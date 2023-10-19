@@ -1,0 +1,871 @@
+{
+	"info": {
+		"_postman_id": "9d0b5533-2c44-45bf-8454-6d51722ab52b",
+		"name": "Restful booker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30221921"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Create token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"Value = jsonData.token;\r",
+									"\r",
+									"console.log(Value);\r",
+									"\r",
+									"pm.collectionVariables.set(\"token\",Value);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"password123\"\r\n}"
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/auth",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "https://restful-booker.herokuapp.com/auth",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"password123\"\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1b-sRXLL4CdkkBIpRD78OmsKwdEoIs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Oct 2023 17:55:39 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"549eee60ca7d5ff\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Get Booking IDs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "https://restful-booker.herokuapp.com/booking",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1638"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"666-591SRGH3X5Ox7/XeF4BJaa9tTKI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Oct 2023 17:42:31 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"bookingid\": 16\n    },\n    {\n        \"bookingid\": 46\n    },\n    {\n        \"bookingid\": 1\n    },\n    {\n        \"bookingid\": 33\n    },\n    {\n        \"bookingid\": 94\n    },\n    {\n        \"bookingid\": 88\n    },\n    {\n        \"bookingid\": 84\n    },\n    {\n        \"bookingid\": 7\n    },\n    {\n        \"bookingid\": 72\n    },\n    {\n        \"bookingid\": 32\n    },\n    {\n        \"bookingid\": 68\n    },\n    {\n        \"bookingid\": 36\n    },\n    {\n        \"bookingid\": 40\n    },\n    {\n        \"bookingid\": 109\n    },\n    {\n        \"bookingid\": 66\n    },\n    {\n        \"bookingid\": 107\n    },\n    {\n        \"bookingid\": 103\n    },\n    {\n        \"bookingid\": 25\n    },\n    {\n        \"bookingid\": 48\n    },\n    {\n        \"bookingid\": 21\n    },\n    {\n        \"bookingid\": 57\n    },\n    {\n        \"bookingid\": 90\n    },\n    {\n        \"bookingid\": 92\n    },\n    {\n        \"bookingid\": 15\n    },\n    {\n        \"bookingid\": 5\n    },\n    {\n        \"bookingid\": 86\n    },\n    {\n        \"bookingid\": 38\n    },\n    {\n        \"bookingid\": 26\n    },\n    {\n        \"bookingid\": 61\n    },\n    {\n        \"bookingid\": 51\n    },\n    {\n        \"bookingid\": 106\n    },\n    {\n        \"bookingid\": 71\n    },\n    {\n        \"bookingid\": 62\n    },\n    {\n        \"bookingid\": 4\n    },\n    {\n        \"bookingid\": 116\n    },\n    {\n        \"bookingid\": 105\n    },\n    {\n        \"bookingid\": 19\n    },\n    {\n        \"bookingid\": 83\n    },\n    {\n        \"bookingid\": 50\n    },\n    {\n        \"bookingid\": 91\n    },\n    {\n        \"bookingid\": 95\n    },\n    {\n        \"bookingid\": 69\n    },\n    {\n        \"bookingid\": 13\n    },\n    {\n        \"bookingid\": 28\n    },\n    {\n        \"bookingid\": 53\n    },\n    {\n        \"bookingid\": 43\n    },\n    {\n        \"bookingid\": 80\n    },\n    {\n        \"bookingid\": 108\n    },\n    {\n        \"bookingid\": 12\n    },\n    {\n        \"bookingid\": 44\n    },\n    {\n        \"bookingid\": 65\n    },\n    {\n        \"bookingid\": 29\n    },\n    {\n        \"bookingid\": 77\n    },\n    {\n        \"bookingid\": 113\n    },\n    {\n        \"bookingid\": 17\n    },\n    {\n        \"bookingid\": 114\n    },\n    {\n        \"bookingid\": 49\n    },\n    {\n        \"bookingid\": 78\n    },\n    {\n        \"bookingid\": 18\n    },\n    {\n        \"bookingid\": 10\n    },\n    {\n        \"bookingid\": 100\n    },\n    {\n        \"bookingid\": 42\n    },\n    {\n        \"bookingid\": 112\n    },\n    {\n        \"bookingid\": 111\n    },\n    {\n        \"bookingid\": 34\n    },\n    {\n        \"bookingid\": 55\n    },\n    {\n        \"bookingid\": 47\n    },\n    {\n        \"bookingid\": 54\n    },\n    {\n        \"bookingid\": 8\n    },\n    {\n        \"bookingid\": 23\n    },\n    {\n        \"bookingid\": 41\n    },\n    {\n        \"bookingid\": 99\n    },\n    {\n        \"bookingid\": 56\n    },\n    {\n        \"bookingid\": 73\n    },\n    {\n        \"bookingid\": 119\n    },\n    {\n        \"bookingid\": 3\n    },\n    {\n        \"bookingid\": 24\n    },\n    {\n        \"bookingid\": 14\n    },\n    {\n        \"bookingid\": 35\n    },\n    {\n        \"bookingid\": 60\n    },\n    {\n        \"bookingid\": 6\n    },\n    {\n        \"bookingid\": 11\n    },\n    {\n        \"bookingid\": 2\n    },\n    {\n        \"bookingid\": 30\n    },\n    {\n        \"bookingid\": 59\n    },\n    {\n        \"bookingid\": 81\n    },\n    {\n        \"bookingid\": 75\n    },\n    {\n        \"bookingid\": 96\n    },\n    {\n        \"bookingid\": 102\n    },\n    {\n        \"bookingid\": 9\n    },\n    {\n        \"bookingid\": 64\n    },\n    {\n        \"bookingid\": 20\n    },\n    {\n        \"bookingid\": 27\n    },\n    {\n        \"bookingid\": 22\n    },\n    {\n        \"bookingid\": 45\n    },\n    {\n        \"bookingid\": 87\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Bookings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking/1",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "https://restful-booker.herokuapp.com/booking/16",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking/5334",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking",
+										"5334"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1697306538&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=Ec8VdQ0Jgu6lAb1TRet1NkfC0JzchuRIeWw5Sld%2Bfdk%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1697306538&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=Ec8VdQ0Jgu6lAb1TRet1NkfC0JzchuRIeWw5Sld%2Bfdk%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "172"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"ac-xlCxN9F7n3ByTI/6jrRtv05y+6A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Oct 2023 18:02:18 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"firstname\": \"Bushra\",\n    \"lastname\": \"Shaikh\",\n    \"totalprice\": 111,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2018-01-01\",\n        \"checkout\": \"2019-01-01\"\n    },\n    \"additionalneeds\": \"Breakfast\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Bushra\",\r\n    \"lastname\" : \"Shaikh\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}"
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "https://restful-booker.herokuapp.com/booking",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\" : \"Bushra\",\r\n    \"lastname\" : \"Shaikh\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "201"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"c9-nJK+40OB6z3GXzXN1wpsQt2FZrk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Oct 2023 18:02:08 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bookingid\": 5334,\n    \"booking\": {\n        \"firstname\": \"Bushra\",\n        \"lastname\": \"Shaikh\",\n        \"totalprice\": 111,\n        \"depositpaid\": true,\n        \"bookingdates\": {\n            \"checkin\": \"2018-01-01\",\n            \"checkout\": \"2019-01-01\"\n        },\n        \"additionalneeds\": \"Breakfast\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Booking",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "token={{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Bush\",\r\n    \"lastname\" : \"Sk\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}"
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking/1",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "https://restful-booker.herokuapp.com/booking/1",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Cookie",
+										"value": "token={{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\" : \"Bush\",\r\n    \"lastname\" : \"Sk\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking/1",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1697306159&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=SbkK3NSBVSke%2BFZe8DpMzLk%2F3ANtW7ZZUKArUeoBPW8%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1697306159&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=SbkK3NSBVSke%2BFZe8DpMzLk%2F3ANtW7ZZUKArUeoBPW8%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "166"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"a6-xJnJMim93FDCamBgtFO/fxMs/hg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Oct 2023 17:55:59 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"firstname\": \"Bush\",\n    \"lastname\": \"Sk\",\n    \"totalprice\": 111,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2018-01-01\",\n        \"checkout\": \"2019-01-01\"\n    },\n    \"additionalneeds\": \"Breakfast\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Partial update booking",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "token={{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Bushraaaa\",\r\n    \"lastname\" : \"Brown\"\r\n}"
+						},
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking/1",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "https://restful-booker.herokuapp.com/booking/1",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Cookie",
+										"value": "token={{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\" : \"Bushraaaa\",\r\n    \"lastname\" : \"Brown\"\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking/1",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "174"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"ae-AUB11iEQNUt+3VOWRxv4N2vl9Sk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Oct 2023 17:59:43 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"firstname\": \"Bushraaaa\",\n    \"lastname\": \"Brown\",\n    \"totalprice\": 111,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2018-01-01\",\n        \"checkout\": \"2019-01-01\"\n    },\n    \"additionalneeds\": \"Breakfast\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Booking",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "token={{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking/2097",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking",
+								"2097"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "https://restful-booker.herokuapp.com/booking/1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Cookie",
+										"value": "token={{token}}"
+									}
+								],
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking/2097",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking",
+										"2097"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "7"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"7-rM9AyJuqT6iOan/xHh+AW+7K/T8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Oct 2023 18:01:43 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "Created"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ping",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/ping",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "https://restful-booker.herokuapp.com/ping",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/ping",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"ping"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1697306656&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=VSrcyns7BVjAO2WIbe2C%2FZUZWWrwwkloTQTxL28Nj44%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1697306656&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=VSrcyns7BVjAO2WIbe2C%2FZUZWWrwwkloTQTxL28Nj44%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "7"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"7-rM9AyJuqT6iOan/xHh+AW+7K/T8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Oct 2023 18:04:16 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "Created"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
